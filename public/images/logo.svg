@@ -1,0 +1,61 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradientMain" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#fdf0b5" />
+      <stop offset="25%" stop-color="#e5be53" />
+      <stop offset="50%" stop-color="#cf9e2f" />
+      <stop offset="75%" stop-color="#af7c1b" />
+      <stop offset="100%" stop-color="#e5be53" />
+    </linearGradient>
+    <linearGradient id="goldGradientHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff3c4" />
+      <stop offset="50%" stop-color="#dfb242" />
+      <stop offset="100%" stop-color="#9a6e14" />
+    </linearGradient>
+    <linearGradient id="goldGradientShine" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
+      <stop offset="35%" stop-color="#e8c15a" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#8d6210" stop-opacity="0.1" />
+    </linearGradient>
+    <filter id="goldGlow" x="-15%" y="-15%" width="130%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#996515" flood-opacity="0.25" />
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#d4af37" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <g filter="url(#goldGlow)">
+    <!-- Right Cusp, Flank & Root -->
+    <path
+      d="M 104 53 C 114 47, 132 40, 150 48 C 165 54, 172 70, 169 90 C 165 116, 161 144, 162 166 C 162 176, 157 184, 150 183 C 142 182, 137 172, 134 160 C 131 147, 126 135, 122 135 C 120 135, 122 143, 126 157 C 130 171, 138 190, 150 190 C 162 190, 171 178, 172 163 C 173 138, 178 107, 179 86 C 180 62, 169 44, 149 39 C 127 34, 110 42, 98 50 Z"
+      fill="url(#goldGradientMain)"
+    />
+
+    <!-- Left Crown Cusp and Outer Flank -->
+    <path
+      d="M 98 48 C 86 42, 69 41, 54 50 C 38 60, 31 77, 33 98 C 35 120, 42 143, 44 165 C 45 177, 49 184, 55 184 C 61 184, 65 176, 64 165 C 63 151, 57 135, 54 117 C 52 102, 51 86, 59 73 C 66 62, 79 56, 92 56 C 97 56, 103 58, 107 60 C 104 54, 101 50, 98 48 Z"
+      fill="url(#goldGradientMain)"
+    />
+
+    <!-- The Grand S Ribbon -->
+    <path
+      d="M 50 63 C 58 52, 72 44, 88 44 C 106 44, 116 53, 112 66 C 108 77, 95 86, 78 94 C 54 105, 41 118, 43 135 C 46 153, 62 165, 84 168 C 109 171, 134 162, 153 148 C 156 146, 159 148, 157 152 C 136 169, 107 179, 81 176 C 54 173, 34 157, 31 133 C 29 111, 45 96, 71 85 C 89 77, 101 68, 104 59 C 106 51, 98 47, 85 48 C 71 49, 58 56, 50 63 Z"
+      fill="url(#goldGradientHighlight)"
+    />
+
+    <!-- Left Root Extension -->
+    <path
+      d="M 72 167 C 70 178, 64 190, 56 190 C 49 190, 44 183, 43 173 C 41 155, 48 138, 51 122 C 53 135, 58 149, 64 160 C 67 165, 70 170, 72 174 Z"
+      fill="url(#goldGradientMain)"
+    />
+
+    <!-- Highlights -->
+    <path
+      d="M 57 56 C 69 48, 83 46, 95 48 C 90 49, 78 53, 67 60 C 58 67, 52 74, 49 82 C 47 72, 51 62, 57 56 Z"
+      fill="url(#goldGradientShine)"
+    />
+    <path
+      d="M 145 52 C 158 57, 166 69, 164 85 C 162 72, 154 62, 143 56 Z"
+      fill="url(#goldGradientShine)"
+    />
+  </g>
+</svg>

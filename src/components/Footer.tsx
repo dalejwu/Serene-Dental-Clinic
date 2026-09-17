@@ -1,0 +1,119 @@
+"use client";
+
+import React from "react";
+import { Phone, Mail, MapPin, Heart } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
+import { ToothMark } from "@/components/BrandLogo";
+
+export default function Footer() {
+  const { t } = useLanguage();
+
+  return (
+    <footer className="bg-slate-950 text-slate-400 py-14 border-t border-[#3d2f16]/60 text-xs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand Col */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-[#2a241b] to-[#1a1610] border border-[#d4af37]/40 flex items-center justify-center p-1 shadow-md">
+                <ToothMark size={28} />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-script text-2xl text-amber-200 leading-none">
+                  Serene Smile
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d4af37] mt-0.5">
+                  Dental Clinic
+                </span>
+              </div>
+            </div>
+            <p className="text-slate-400 leading-relaxed text-xs">
+              {t.footer.desc}
+            </p>
+            <div className="flex flex-col gap-1.5 pt-1 text-slate-300 font-medium">
+              <span>🇵🇭 Zamboanga City Branch</span>
+              <a
+                href="https://www.facebook.com/p/Smile-Today-Dental-Clinic-Zamboanga-City-Branch-61583099436372/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-400 hover:text-amber-300 text-[11px] underline underline-offset-2 flex items-center gap-1"
+              >
+                Official Facebook Page & Updates &rarr;
+              </a>
+            </div>
+          </div>
+
+          {/* Treatments Col */}
+          <div className="space-y-3">
+            <h5 className="font-bold text-white text-xs uppercase tracking-wider text-[#d4af37]">
+              {t.footer.treatmentsTitle}
+            </h5>
+            <ul className="space-y-2">
+              <li><a href="#services" className="hover:text-amber-300 transition-colors">Swiss EMS Airflow® Prophylaxis</a></li>
+              <li><a href="#services" className="hover:text-amber-300 transition-colors">Orthodontics & Braces</a></li>
+              <li><a href="#services" className="hover:text-amber-300 transition-colors">Wisdom Tooth Removal & Bunot</a></li>
+              <li><a href="#services" className="hover:text-amber-300 transition-colors">Composite Tooth Filling (Pasta)</a></li>
+              <li><a href="#services" className="hover:text-amber-300 transition-colors">Cosmetic Veneers & Whitening</a></li>
+            </ul>
+          </div>
+
+          {/* Office Contact */}
+          <div className="space-y-3">
+            <h5 className="font-bold text-white text-xs uppercase tracking-wider text-[#d4af37]">
+              {t.footer.contactTitle}
+            </h5>
+            <ul className="space-y-2.5 text-slate-300">
+              <li className="flex items-center gap-2.5">
+                <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">
+                  <Phone className="w-3 h-3" />
+                </div>
+                <a href="tel:09992258329" className="text-white font-semibold tabular-nums hover:text-amber-300">0999 225 8329</a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">
+                  <Mail className="w-3 h-3" />
+                </div>
+                <a href="mailto:contact@serenedentalclinic.com" className="hover:text-amber-300 break-all">contact@serenedentalclinic.com</a>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0 mt-0.5">
+                  <MapPin className="w-3 h-3" />
+                </div>
+                <span>Mayor Jaldon St., Canelar, Zamboanga City (Across Honda Motors, fronting Elevation Gents)</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Accreditation & Payment Badges */}
+          <div className="space-y-3">
+            <h5 className="font-bold text-white text-xs uppercase tracking-wider text-[#d4af37]">
+              {t.footer.accreditationTitle}
+            </h5>
+            <p className="text-[11px] text-slate-400 leading-relaxed">
+              {t.footer.accreditationText}
+            </p>
+            <div className="pt-2 flex flex-wrap gap-1.5">
+              <span className="px-2.5 py-1 bg-slate-900 rounded-lg text-[10px] text-amber-300 font-semibold border border-[#d4af37]/30">
+                PRC Licensed
+              </span>
+              <span className="px-2.5 py-1 bg-slate-900 rounded-lg text-[10px] text-amber-300 font-semibold border border-[#d4af37]/30">
+                PDA Member
+              </span>
+              <span className="px-2.5 py-1 bg-slate-900 rounded-lg text-[10px] text-sky-300 font-semibold border border-sky-600/30">
+                GCash / Maya Ready
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-8 border-t border-slate-800/80 text-center text-[11px] text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div>{t.footer.rightsReserved}</div>
+          <div className="flex items-center gap-1 text-slate-400">
+            <span>Made with care for Filipino smiles • Canelar, Zamboanga City</span>
+            <Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

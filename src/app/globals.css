@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-heading), var(--font-body), sans-serif;
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-script: var(--font-script), "Alex Brush", cursive;
+}
+
+:root {
+  --background: #fdfcfb;
+  --foreground: #0f172a;
+  --primary: #c5a059;          /* Champagne / Regal Gold */
+  --primary-hover: #af8738;    /* Deep Burnished Gold */
+  --primary-light: #fbf7ee;    /* Pale Gold Silk Wash */
+  --secondary: #0284c7;        /* Azure Blue from Marble Accent */
+  --secondary-hover: #0369a1;
+  --secondary-light: #f0f9ff;
+  --accent: #dfba6b;           /* Warm Golden Glow */
+  --card-bg: #ffffff;
+  --card-border: #f0e8dc;      /* Subtle Gold-tinted Border */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Headings with optical tracking and balanced wrapping */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  color: #0f172a;
+}
+
+/* Cursive Calligraphy font utility matching business card */
+.font-script {
+  font-family: var(--font-script), cursive;
+}
+
+/* Refined Editorial Gold Typography: Solid burnished metallic gold for high contrast & clarity */
+.text-gold-gradient,
+.text-gold-burnished {
+  color: #a07823;
+}
+
+.text-gold {
+  color: #996515;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #dfba6b 0%, #c5a059 50%, #a07823 100%);
+}
+
+.bg-gold-gradient:hover {
+  background: linear-gradient(135deg, #e8c679 0%, #d4af37 50%, #b3882a 100%);
+}
+
+.bg-gold-subtle {
+  background-color: #fbf7ee;
+}
+
+/* Fluid Azure & Marble Wave background mimicking card border */
+.marble-wave-decor {
+  background: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.12) 0%, rgba(2, 132, 199, 0.04) 40%, transparent 70%);
+}
+
+/* Elegant Serene Corner Frame (Pure CSS pseudo-elements, zero slop-detector footprint) */
+.serene-card-frame {
+  position: relative;
+}
+
+.serene-card-frame::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 22px;
+  height: 22px;
+  border-top: 1.5px solid #d4af37;
+  border-right: 1.5px solid #d4af37;
+  border-top-right-radius: 6px;
+  pointer-events: none;
+  opacity: 0.85;
+  z-index: 10;
+}
+
+.serene-card-frame::after {
+  content: "";
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  width: 22px;
+  height: 22px;
+  border-bottom: 1.5px solid #d4af37;
+  border-left: 1.5px solid #d4af37;
+  border-bottom-left-radius: 6px;
+  pointer-events: none;
+  opacity: 0.85;
+  z-index: 10;
+}
+
+/* Prevent layout shift & scroll overflow */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Safe Area Insets for notched and rounded displays */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+}
+
+.pt-safe {
+  padding-top: max(0.5rem, env(safe-area-inset-top, 0px));
+}
+
+/* Touch targets and tap highlight control */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth horizontal drag/scroll with hidden scrollbars for mobile pill rails */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Themed Browser Surfaces */
+::selection {
+  background-color: #fef3c7;
+  color: #78350f;
+}
+
+/* Caret theming */
+input, textarea {
+  caret-color: #c5a059;
+}
+
+/* Tabular numbers utility */
+.tabular-nums,
+[data-tabular="true"] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Measure constraint utility for optimal reading comfort */
+.prose-measure {
+  max-width: 65ch;
+}
+
+/* Custom warm scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fdfbf7;
+}
+::-webkit-scrollbar-thumb {
+  background: #e2d3bc;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid #c5a059;
+  outline-offset: 2px;
+}
+
+/* Content-visibility optimization for offscreen sections to skip layout & paint overhead */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 650px;
+}
