@@ -121,9 +121,7 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
                 <span className="truncate">0999 225 8329</span>
               </a>
               <a
-                href="https://viber.click/639992258329"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="viber://chat?number=%2B639992258329"
                 className="flex-1 sm:flex-none min-h-[44px] inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold rounded-xl shadow-xs transition-all active:scale-[0.98]"
               >
                 <MessageCircle className="w-3.5 h-3.5 shrink-0" />

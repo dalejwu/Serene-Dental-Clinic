@@ -25,23 +25,18 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
             </div>
             <div className="flex flex-col justify-center min-w-0">
               <div className="flex items-baseline gap-1.5 sm:gap-2 leading-none">
-                <span className="font-script text-xl sm:text-2xl lg:text-[28px] text-slate-900 tracking-wide font-normal truncate">
+                <span className="font-script text-2xl sm:text-3xl lg:text-[32px] text-slate-900 tracking-wide font-normal">
                   Serene Smile
                 </span>
-                <span className="text-[10px] sm:text-xs lg:text-[13px] font-bold uppercase tracking-wider text-[#b8860b] shrink-0">
+                <span className="text-[11px] sm:text-xs lg:text-[13px] font-extrabold uppercase tracking-widest text-[#996515] shrink-0">
                   Dental Clinic
                 </span>
-              </div>
-              <div className="hidden sm:flex items-center gap-1.5 text-[11px] text-slate-500 font-medium tracking-wide mt-1">
-                <span>🇵🇭 Canelar, Zamboanga City</span>
-                <span className="text-amber-400">•</span>
-                <span className="text-[#996515] font-semibold">Zamboanga Peninsula</span>
               </div>
             </div>
           </a>
 
-          {/* 2. Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8 text-sm font-semibold text-slate-700">
+          {/* 2. Desktop Navigation Links with generous breathing room */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-9 text-sm font-semibold text-slate-700 px-6 xl:px-12">
             <a
               href="#services"
               className="whitespace-nowrap hover:text-[#b8860b] transition-colors py-1.5"
@@ -110,19 +105,6 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
                 CEB
               </button>
             </div>
-
-            {/* Contact Pill (Visible on wide desktop to prevent mid-screen crowding) */}
-            <a
-              href="tel:09992258329"
-              className="h-10 hidden 2xl:flex items-center gap-2 px-3.5 bg-sky-50/70 hover:bg-sky-100/70 text-slate-700 rounded-xl border border-sky-100 transition-colors whitespace-nowrap shrink-0"
-            >
-              <div className="w-6 h-6 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0 shadow-xs">
-                <Phone className="w-3 h-3" />
-              </div>
-              <div className="text-left leading-tight pr-0.5">
-                <div className="font-extrabold text-xs text-slate-900 tabular-nums">0999 225 8329</div>
-              </div>
-            </a>
 
             {/* Main Booking Button with Lustrous Gold Gradient */}
             <button
@@ -224,19 +206,6 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           </div>
 
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-3">
-            <a
-              href="tel:09992258329"
-              className="flex items-center gap-2.5 text-xs text-slate-700 bg-sky-50/70 p-3.5 rounded-2xl border border-sky-100"
-            >
-              <div className="w-8 h-8 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">
-                <Phone className="w-4 h-4" />
-              </div>
-              <div>
-                <div className="font-extrabold text-slate-900 tabular-nums">0999 225 8329</div>
-                <div className="text-[11px] text-[#0284c7] font-medium">Canelar Clinic & Viber Hotline</div>
-              </div>
-            </a>
-
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

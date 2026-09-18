@@ -68,9 +68,7 @@ export default function FloatingHelp({ onOpenBooking }: FloatingHelpProps) {
 
             <div className="space-y-2">
               <a
-                href="https://viber.click/639992258329"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="viber://chat?number=%2B639992258329"
                 className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold rounded-xl shadow-sm transition-all"
               >
                 <MessageCircle className="w-4 h-4" />

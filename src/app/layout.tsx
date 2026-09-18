@@ -58,7 +58,7 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakartaSans.variable} ${inter.variable} ${newsreader.variable} ${alexBrush.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#fdfcfb] text-slate-900 font-sans">
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-[#fdfcfb] text-slate-900 font-sans">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>

@@ -45,7 +45,7 @@ export default function Footer() {
 
           {/* Treatments Col */}
           <div className="space-y-3">
-            <h5 className="font-bold text-white text-xs uppercase tracking-wider text-[#d4af37]">
+            <h5 className="font-extrabold text-amber-300 text-xs uppercase tracking-widest">
               {t.footer.treatmentsTitle}
             </h5>
             <ul className="space-y-2">
@@ -59,7 +59,7 @@ export default function Footer() {
 
           {/* Office Contact */}
           <div className="space-y-3">
-            <h5 className="font-bold text-white text-xs uppercase tracking-wider text-[#d4af37]">
+            <h5 className="font-extrabold text-amber-300 text-xs uppercase tracking-widest">
               {t.footer.contactTitle}
             </h5>
             <ul className="space-y-2.5 text-slate-300">
@@ -86,7 +86,7 @@ export default function Footer() {
 
           {/* Accreditation & Payment Badges */}
           <div className="space-y-3">
-            <h5 className="font-bold text-white text-xs uppercase tracking-wider text-[#d4af37]">
+            <h5 className="font-extrabold text-amber-300 text-xs uppercase tracking-widest">
               {t.footer.accreditationTitle}
             </h5>
             <p className="text-[11px] text-slate-400 leading-relaxed">
