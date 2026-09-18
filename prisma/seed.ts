@@ -84,7 +84,7 @@ async function main() {
         experienceYears: 12,
         bio: "Founder & Lead Surgeon at Serene Dental Clinic. Passionate about gentle, anxiety-free dental visits in a modern, welcoming safe-space environment on Mayor Jaldon St., Canelar.",
         availableDays: "Mon, Tue, Wed, Thu, Fri, Sat",
-        avatarUrl: "/images/hero_dentist.jpg",
+        avatarUrl: "/images/hero_dentist.webp",
       },
     }),
     prisma.dentist.create({
@@ -95,7 +95,7 @@ async function main() {
         experienceYears: 8,
         bio: "Specialist in gentle pediatric dentistry, Swiss Airflow prophylaxis, and painless composite tooth restorations. Known for her calm, reassuring approach with nervous patients.",
         availableDays: "Mon, Wed, Fri",
-        avatarUrl: "/images/dentist_camille.jpg",
+        avatarUrl: "/images/dentist_camille.webp",
       },
     }),
     prisma.dentist.create({
@@ -106,7 +106,7 @@ async function main() {
         experienceYears: 11,
         bio: "Experienced in atraumatic impacted wisdom tooth extractions (odontectomy) and complicated surgical cases with rapid postoperative recovery.",
         availableDays: "Tue, Thu, Sat",
-        avatarUrl: "/images/dentist_mark.jpg",
+        avatarUrl: "/images/dentist_mark.webp",
       },
     }),
   ]);

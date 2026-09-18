@@ -1,11 +1,15 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { DEFAULT_DENTISTS } from "@/lib/defaultData";
 
 export async function GET() {
   try {
     const dentists = await prisma.dentist.findMany({
       orderBy: { experienceYears: "desc" },
     });
+    if (!dentists || dentists.length === 0) {
+      return NextResponse.json({ success: true, data: DEFAULT_DENTISTS });
+    }
     return NextResponse.json(
       { success: true, data: dentists },
       {
@@ -15,10 +19,7 @@ export async function GET() {
       }
     );
   } catch (error) {
-    console.error("Failed to fetch dentists:", error);
-    return NextResponse.json(
-      { success: false, error: "Failed to fetch dentists" },
-      { status: 500 }
-    );
+    console.error("Failed to fetch dentists from DB, serving fallback data:", error);
+    return NextResponse.json({ success: true, data: DEFAULT_DENTISTS });
   }
 }

@@ -112,20 +112,16 @@ export default function ClinicInfo() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs tabular-nums">
                 <div className="flex justify-between items-center py-1.5 border-b border-slate-200/60 text-slate-600">
-                  <span>{t.clinicInfo.monThu}:</span>
-                  <span className="font-semibold text-slate-900">8:30 AM – 6:00 PM</span>
+                  <span>Monday – Saturday:</span>
+                  <span className="font-semibold text-slate-900">9:00 AM – 5:00 PM</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-slate-200/60 text-slate-600">
-                  <span>{t.clinicInfo.fri}:</span>
-                  <span className="font-semibold text-slate-900">8:30 AM – 5:00 PM</span>
+                  <span>Sunday:</span>
+                  <span className="font-semibold text-slate-400">Closed</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-slate-200/60 text-slate-600">
-                  <span>{t.clinicInfo.sat}:</span>
-                  <span className="font-semibold text-slate-900">9:00 AM – 4:00 PM</span>
-                </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-slate-200/60 text-slate-600">
-                  <span>{t.clinicInfo.sun}:</span>
-                  <span className="font-semibold text-amber-700">{t.clinicInfo.closedEmergency}</span>
+                <div className="col-span-1 sm:col-span-2 flex items-center gap-1.5 pt-1 text-[11px] text-[#8c6210] font-semibold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                  <span>Clinic visits are by pre-scheduled appointment only (No walk-ins)</span>
                 </div>
               </div>
             </div>

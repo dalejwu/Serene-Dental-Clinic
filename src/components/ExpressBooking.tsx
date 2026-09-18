@@ -4,15 +4,19 @@ import React, { useState } from "react";
 import {
   Phone,
   CheckCircle2,
-  Sparkles,
   MessageCircle,
   ShieldCheck,
   User,
   AlertCircle,
+  Calendar,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
-export default function ExpressBooking() {
+interface ExpressBookingProps {
+  onOpenBooking?: () => void;
+}
+
+export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = {}) {
   const { t } = useLanguage();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -125,6 +129,16 @@ export default function ExpressBooking() {
                 <MessageCircle className="w-3.5 h-3.5 shrink-0" />
                 <span>Viber</span>
               </a>
+              {onOpenBooking && (
+                <button
+                  type="button"
+                  onClick={onOpenBooking}
+                  className="flex-1 sm:flex-none min-h-[44px] inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 bg-gradient-to-r from-[#dfba6b] to-[#a07823] hover:from-[#e8c679] hover:to-[#b3882a] text-slate-950 text-xs font-bold rounded-xl shadow-xs transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap"
+                >
+                  <Calendar className="w-3.5 h-3.5 text-slate-950 shrink-0" />
+                  <span>Calendly Slot</span>
+                </button>
+              )}
             </div>
           </div>
 

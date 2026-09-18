@@ -15,10 +15,9 @@ import { ToothMark } from "@/components/BrandLogo";
 
 interface HeroProps {
   onOpenBooking: () => void;
-  onOpenExpressBooking?: () => void;
 }
 
-export default function Hero({ onOpenBooking, onOpenExpressBooking }: HeroProps) {
+export default function Hero({ onOpenBooking }: HeroProps) {
   const { t } = useLanguage();
 
   return (
@@ -53,18 +52,14 @@ export default function Hero({ onOpenBooking, onOpenExpressBooking }: HeroProps)
               </p>
 
               {/* Reassuring Clinical Trust Chips */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 py-0.5">
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-[#fdfaf3] px-2.5 py-1.5 rounded-xl border border-[#ede2d1]">
+              <div className="flex flex-wrap gap-2 py-0.5">
+                <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-[#fdfaf3] px-3 py-1.5 rounded-xl border border-[#ede2d1]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
                   <span>Swiss Airflow®</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-[#fdfaf3] px-2.5 py-1.5 rounded-xl border border-[#ede2d1]">
+                <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-[#fdfaf3] px-3 py-1.5 rounded-xl border border-[#ede2d1]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
-                  <span>₱0 Booking Fee</span>
-                </div>
-                <div className="col-span-2 sm:col-span-1 flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-[#fdfaf3] px-2.5 py-1.5 rounded-xl border border-[#ede2d1]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
-                  <span>Walk-ins Welcome</span>
+                  <span>Mon – Sat: 9AM – 5PM</span>
                 </div>
               </div>
 
@@ -154,7 +149,7 @@ export default function Hero({ onOpenBooking, onOpenExpressBooking }: HeroProps)
               {/* Photo Frame */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-amber-950/10 border border-[#ede2d1] aspect-[4/3] lg:aspect-[5/4] bg-slate-100">
                 <img
-                  src="/images/hero_dentist.jpg"
+                  src="/images/hero_dentist.webp"
                   alt="Friendly Resident Dentist at Serene Dental Clinic"
                   width={600}
                   height={480}

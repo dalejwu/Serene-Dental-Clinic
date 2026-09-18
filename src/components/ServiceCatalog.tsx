@@ -14,6 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
+import { DEFAULT_SERVICES } from "@/lib/defaultData";
 
 export interface ServiceItem {
   id: string;
@@ -123,12 +124,18 @@ export default function ServiceCatalog({ onSelectService }: ServiceCatalogProps)
     async function loadServices() {
       try {
         const res = await fetch("/api/services");
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
         const data = await res.json();
-        if (data.success) {
+        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
           setServices(data.data);
+        } else {
+          setServices(DEFAULT_SERVICES);
         }
       } catch (err) {
-        console.error("Failed to load services:", err);
+        console.warn("Could not fetch dental services from API, using default services:", err);
+        setServices(DEFAULT_SERVICES);
       } finally {
         setLoading(false);
       }

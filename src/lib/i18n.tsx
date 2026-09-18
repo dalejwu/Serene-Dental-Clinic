@@ -115,7 +115,6 @@ export interface Translations {
     availableDaysLabel: string;
     bookWith: string;
     yearsExp: string;
-    scheduleCta: string;
   };
   testimonials: {
     heading: string;
@@ -155,52 +154,6 @@ export interface Translations {
     contactBarBranch: string;
     faqs: { q: string; a: string }[];
   };
-  bookingModal: {
-    title: string;
-    stepPrefix: string;
-    stepConfirmed: string;
-    step1: string;
-    step2: string;
-    step3: string;
-    step4: string;
-    s1Title: string;
-    s1Sub: string;
-    s2Title: string;
-    s2Sub: string;
-    s3Title: string;
-    s3Sub: string;
-    availableDaysLabel: string;
-    s4Title: string;
-    s4Sub: string;
-    nameLabel: string;
-    emailLabel: string;
-    phoneLabel: string;
-    notesLabel: string;
-    hipaaNotice: string;
-    backBtn: string;
-    continueBtn: string;
-    confirmBtn: string;
-    confirmingBtn: string;
-    confirmedTitle: string;
-    confirmedSub: string;
-    bookingRef: string;
-    procedureLabel: string;
-    specialistLabel: string;
-    dateLabel: string;
-    timeLabel: string;
-    patientLabel: string;
-    arrivalNotice: string;
-    doneBtn: string;
-    availableDaysTitle: string;
-    timeSlotLabel: string;
-    noPrepaymentNote: string;
-    callAlternativeTitle: string;
-    callAlternativeSub: string;
-    errService: string;
-    errDentist: string;
-    errDateTime: string;
-    errGeneric: string;
-  };
   footer: {
     desc: string;
     treatmentsTitle: string;
@@ -225,7 +178,7 @@ const translations: Record<Language, Translations> = {
     },
     topBanner: {
       badge: "CANELAR, ZAMBOANGA CITY",
-      text: "Accepting Walk-ins & Appointments in Zamboanga City • Dr. Liam Hayes, DMD. Hotline: ",
+      text: "Open Monday – Saturday (9:00 AM – 5:00 PM) • By Appointment Only • Hotline: ",
       callText: "0999 225 8329",
     },
     hero: {
@@ -234,7 +187,7 @@ const translations: Record<Language, Translations> = {
       titleHighlight: "Safe Space",
       description:
         "Gentle, aesthetic, and welcoming dental care in Canelar, Zamboanga City. Modern Swiss EMS Airflow cleaning, braces, wisdom tooth extraction, and cosmetic transformations without the fear.",
-      ctaBook: "Book Appointment (₱0 Fee)",
+      ctaBook: "Book Appointment",
       ctaServices: "Explore Services & Pricing",
       ratingText: "5.0/5 Rating • Trusted in Zamboanga City",
       pricingGuarantee: "100% Transparent ₱ Pricing",
@@ -243,7 +196,7 @@ const translations: Record<Language, Translations> = {
       sameDaySub: "Painless cleaning with zero scraper discomfort",
       suiteTitle: "Serene Dental Clinic",
       suiteLocation: "Mayor Jaldon St., Canelar, Zamboanga City",
-      acceptingBadge: "Accepting Walk-ins & Bookings",
+      acceptingBadge: "Open Mon–Sat (9AM–5PM) • By Appointment",
       popularBadge: "Most Requested",
       popularTime: "45 min session",
       sampleProcedure: "Swiss EMS Airflow® Prophylaxis & Complete Checkup",
@@ -284,7 +237,7 @@ const translations: Record<Language, Translations> = {
       chatViber: "Chat Front Desk via Viber / SMS",
       viberSub: "Fast response: 0999 225 8329",
       callClinic: "Call Clinic Hotline",
-      bookMobileBar: "Book Appointment (₱0 Fee)",
+      bookMobileBar: "Book Appointment",
       orChatViber: "Prefer to chat? Message 0999 225 8329",
       receptionTitle: "Canelar Clinic Reception Desk",
       onlineStatus: "Online & Active Now",
@@ -338,7 +291,6 @@ const translations: Record<Language, Translations> = {
       availableDaysLabel: "Clinic Schedule:",
       bookWith: "Book with",
       yearsExp: "y exp",
-      scheduleCta: "Schedule Consultation",
     },
     testimonials: {
       heading: "What People Say About",
@@ -418,60 +370,13 @@ const translations: Record<Language, Translations> = {
         },
         {
           q: "Do you accept walk-in patients?",
-          a: "Yes! We welcome walk-in patients from Monday to Saturday (9:00 AM – 5:00 PM). Booking online or messaging 0999 225 8329 is recommended to secure your preferred slot with minimal wait times.",
+          a: "To ensure dedicated care and zero waiting time, clinic visits are strictly by pre-scheduled appointment from Monday to Saturday (9:00 AM – 5:00 PM). Please book online via Calendly or call/message 0999 225 8329.",
         },
         {
           q: "Do you offer installment payment plans for braces?",
           a: "Yes! We provide flexible downpayment terms and affordable monthly installments for conventional metal braces, ceramic aesthetic braces, and self-ligating brackets.",
         },
       ],
-    },
-    bookingModal: {
-      title: "Schedule Your Appointment",
-      stepPrefix: "Step",
-      stepConfirmed: "Confirmed Appointment",
-      step1: "Procedure",
-      step2: "Dentist",
-      step3: "Date & Time",
-      step4: "Patient Info",
-      s1Title: "Select a Dental Procedure",
-      s1Sub: "Choose a service to view estimated duration and transparent Philippine Peso (₱) pricing.",
-      s2Title: "Choose Your Dentist",
-      s2Sub: "Select Dr. Liam Hayes or our associate dental specialists.",
-      s3Title: "Choose Your Date & Time",
-      s3Sub: "Available appointment slots at our Canelar, Zamboanga City clinic:",
-      availableDaysLabel: "Clinic Schedule:",
-      s4Title: "Patient Information",
-      s4Sub: "We will send your schedule confirmation and reminders to your mobile number.",
-      nameLabel: "Full Legal Name *",
-      emailLabel: "Email Address",
-      phoneLabel: "Mobile Number (09XX-XXX-XXXX for SMS/Viber) *",
-      notesLabel: "Additional Symptoms or Notes (e.g., sensitive to cold drinks)",
-      hipaaNotice: "Your personal data is protected under the Philippine Data Privacy Act of 2012.",
-      backBtn: "Back",
-      continueBtn: "Continue",
-      confirmBtn: "Confirm Appointment",
-      confirmingBtn: "Confirming Slot...",
-      confirmedTitle: "Appointment Successfully Booked!",
-      confirmedSub: "Confirmation sent to",
-      bookingRef: "Booking Reference ID",
-      procedureLabel: "Procedure:",
-      specialistLabel: "Dentist:",
-      dateLabel: "Date:",
-      timeLabel: "Time:",
-      patientLabel: "Patient:",
-      arrivalNotice:
-        "Serene Smile Dental Clinic, Mayor Jaldon St., Canelar, Zamboanga City (Across Honda Motors). Please arrive 10 minutes before your scheduled appointment.",
-      doneBtn: "Done",
-      availableDaysTitle: "Available Clinic Days (Canelar Clinic)",
-      timeSlotLabel: "Select Preferred Time (Philippine Standard Time)",
-      noPrepaymentNote: "100% free booking reservation. We will call you first to confirm.",
-      callAlternativeTitle: "Prefer not to fill out a form?",
-      callAlternativeSub: "Call or message our receptionist directly on Viber",
-      errService: "Please select a service before proceeding.",
-      errDentist: "Please select a dentist before proceeding.",
-      errDateTime: "Please select an appointment date and time slot.",
-      errGeneric: "Something went wrong. Please try again.",
     },
     footer: {
       desc: "Serene Smile Dental Clinic – Zamboanga City Branch. Led by Dr. Liam Hayes, DMD. Gentle, caring, and accessible dental healthcare on Mayor Jaldon St., Canelar, Zamboanga City.",
@@ -496,7 +401,7 @@ const translations: Record<Language, Translations> = {
     },
     topBanner: {
       badge: "CANELAR, ZAMBOANGA CITY",
-      text: "Tumatanggap ng Walk-ins & Appointments sa Zamboanga City • Dr. Liam Hayes, DMD. Hotline: ",
+      text: "Bukas Lunes hanggang Sabado (9:00 AM – 5:00 PM) • By Appointment Lamang • Hotline: ",
       callText: "0999 225 8329",
     },
     hero: {
@@ -514,7 +419,7 @@ const translations: Record<Language, Translations> = {
       sameDaySub: "Walang ngilo at walang masakit na pagkaskas",
       suiteTitle: "Serene Dental Clinic",
       suiteLocation: "Mayor Jaldon St., Canelar, Zamboanga City",
-      acceptingBadge: "Tumatanggap ng Walk-ins",
+      acceptingBadge: "Bukas Mon–Sat (9AM–5PM) • By Appointment",
       popularBadge: "Pinakasikat",
       popularTime: "45 minutong sesyon",
       sampleProcedure: "Swiss EMS Airflow® Linis at Checkup",
@@ -609,7 +514,6 @@ const translations: Record<Language, Translations> = {
       availableDaysLabel: "Araw sa Klinika:",
       bookWith: "Magpa-book kay",
       yearsExp: "Taon sa Praktis",
-      scheduleCta: "Mag-iskedyul ng Konsultasyon",
     },
     testimonials: {
       heading: "Ang Sinasabi ng mga Pasyente Tungkol sa",
@@ -689,60 +593,13 @@ const translations: Record<Language, Translations> = {
         },
         {
           q: "Tumatanggap po ba kayo ng walk-in patients?",
-          a: "Opo! Tumatanggap kami ng walk-in mula Lunes hanggang Sabado (9:00 AM – 5:00 PM). Gayunpaman, inirerekomenda namin ang pag-book online o pag-message sa 0999 225 8329 para maiwasan ang paghihintay.",
+          a: "Bukas po ang aming klinika mula Lunes hanggang Sabado (9:00 AM – 5:00 PM) para sa mga pre-scheduled appointments lamang upang walang hintayan. Mag-book online sa Calendly o tumawag/mag-message sa 0999 225 8329.",
         },
         {
           q: "May installment plan po ba para sa braces?",
           a: "Opo! May flexible downpayment at abot-kayang buwanang hulugan para sa conventional metal braces, ceramic aesthetic braces, at self-ligating braces.",
         },
       ],
-    },
-    bookingModal: {
-      title: "Magpa-schedule ng Appointment",
-      stepPrefix: "Step",
-      stepConfirmed: "Kumpirmadong Appointment",
-      step1: "Serbisyo",
-      step2: "Dentista",
-      step3: "Araw at Oras",
-      step4: "Impormasyon",
-      s1Title: "Pumili ng Dental Procedure",
-      s1Sub: "Pumili ng serbisyo upang makita ang tinatayang tagal at malinaw na presyo (₱).",
-      s2Title: "Pumili ng Iyong Dentista",
-      s2Sub: "Pumili kay Dr. Liam Hayes o associate specialist.",
-      s3Title: "Pumili ng Araw at Oras",
-      s3Sub: "Available slots sa Canelar, Zamboanga City branch:",
-      availableDaysLabel: "Mga Araw sa Klinika:",
-      s4Title: "Impormasyon ng Pasyente",
-      s4Sub: "Ipapadala namin ang kumpirmasyon sa iyong mobile number.",
-      nameLabel: "Kumpletong Pangalan *",
-      emailLabel: "Email Address",
-      phoneLabel: "Mobile Number (09XX-XXX-XXXX para sa SMS/Viber) *",
-      notesLabel: "Karagdagang Sintomas (Hal. masakit kapag umiinom ng malamig)",
-      hipaaNotice: "Protektado ang iyong data alinsunod sa Philippine Data Privacy Act ng 2012.",
-      backBtn: "Bumalik",
-      continueBtn: "Magpatuloy",
-      confirmBtn: "Kumpirmahin ang Appointment",
-      confirmingBtn: "Kinukumpirma ang Slot...",
-      confirmedTitle: "Matagumpay na Naka-book ang Appointment!",
-      confirmedSub: "Ipinadala ang detalye sa",
-      bookingRef: "Booking Reference ID",
-      procedureLabel: "Serbisyo:",
-      specialistLabel: "Dentista:",
-      dateLabel: "Petsa:",
-      timeLabel: "Oras:",
-      patientLabel: "Pasyente:",
-      arrivalNotice:
-        "Serene Smile Dental Clinic, Mayor Jaldon St., Canelar, Zamboanga City (Tapat ng Honda Motors). Mangyaring dumating 10 minuto bago ang iskedyul.",
-      doneBtn: "Tapos na",
-      availableDaysTitle: "Mga Araw na Bukas ang Klinika (Canelar Branch)",
-      timeSlotLabel: "Pumili ng Oras (Philippine Standard Time)",
-      noPrepaymentNote: "100% libre ang booking reservation. Tatawagan ka muna para kumpirmahin.",
-      callAlternativeTitle: "Ayaw mag-fill up ng form?",
-      callAlternativeSub: "Tumawag o mag-Viber kaagad sa receptionist",
-      errService: "Pumili muna ng serbisyo bago magpatuloy.",
-      errDentist: "Pumili ng dentista bago magpatuloy.",
-      errDateTime: "Pumili ng araw at oras ng pagbisita.",
-      errGeneric: "Nagkaroon ng problema. Paki-ulit muli.",
     },
     footer: {
       desc: "Serene Smile Dental Clinic – Zamboanga City Branch. Pinangungunahan ni Dr. Liam Hayes, DMD. Maalaga, magaan, at abot-kayang dental care sa Mayor Jaldon St., Canelar, Zamboanga City.",
@@ -767,7 +624,7 @@ const translations: Record<Language, Translations> = {
     },
     topBanner: {
       badge: "CANELAR, ZAMBOANGA CITY",
-      text: "Bienvenido na Serene Dental Clinic Zamboanga City • Dr. Liam Hayes, DMD. Hotline: ",
+      text: "Abre Lunes hangtod Sabado (9:00 AM – 5:00 PM) • By Appointment Lamang • Hotline: ",
       callText: "0999 225 8329",
     },
     hero: {
@@ -785,7 +642,7 @@ const translations: Record<Language, Translations> = {
       sameDaySub: "Walay sakit nga limpyo sa ngipon",
       suiteTitle: "Serene Dental Clinic",
       suiteLocation: "Mayor Jaldon St., Canelar, Zamboanga City",
-      acceptingBadge: "Naga-dawat og Walk-ins",
+      acceptingBadge: "Abre Mon–Sat (9AM–5PM) • By Appointment",
       popularBadge: "Pinakapopular",
       popularTime: "45 minutos",
       sampleProcedure: "Swiss EMS Airflow® Limpyo ug Checkup",
@@ -880,7 +737,6 @@ const translations: Record<Language, Translations> = {
       availableDaysLabel: "Adlaw sa Klinika:",
       bookWith: "Mag-book kang",
       yearsExp: "tuig kasinatian",
-      scheduleCta: "Mag-iskedyul og Konsultasyon",
     },
     testimonials: {
       heading: "Ang Gisulti sa mga Tawo Bahin Kan",
@@ -960,60 +816,13 @@ const translations: Record<Language, Translations> = {
         },
         {
           q: "Modawat ba mo og walk-in patients?",
-          a: "Oo! Modawat mi og walk-in gikan Lunes hangtod Sabado (9:00 AM – 5:00 PM). Apan mas maayo mag-book daan o mag-message sa 0999 225 8329 para dili maghulat.",
+          a: "Abre kami gikan Lunes hangtod Sabado (9:00 AM – 5:00 PM) pinaagi lamang sa pre-scheduled appointments para walay paghulat. Palihog pag-book online sa Calendly o tawag/mensahe sa 0999 225 8329.",
         },
         {
           q: "Naa bay installment plan para sa braces?",
           a: "Oo! Naay flexible downpayment ug barato nga binulan nga hulugan para sa braces.",
         },
       ],
-    },
-    bookingModal: {
-      title: "Magpa-schedule og Appointment",
-      stepPrefix: "Step",
-      stepConfirmed: "Kumpirmadong Appointment",
-      step1: "Serbisyo",
-      step2: "Dentista",
-      step3: "Adlaw ug Oras",
-      step4: "Impormasyon",
-      s1Title: "Pilia ang Dental Procedure",
-      s1Sub: "Pilia ang serbisyo aron makita ang tinatayang gidugayon ug klaro nga presyo (₱).",
-      s2Title: "Pilia ang Dentista",
-      s2Sub: "Pilia si Dr. Liam Hayes o associate specialist.",
-      s3Title: "Pilia ang Adlaw ug Oras",
-      s3Sub: "Available slots sa Canelar, Zamboanga City branch:",
-      availableDaysLabel: "Adlaw sa Klinika:",
-      s4Title: "Impormasyon sa Pasyente",
-      s4Sub: "Ipadala namo ang kumpirmasyon sa imong mobile number.",
-      nameLabel: "Kumpletong Ngalan *",
-      emailLabel: "Email Address",
-      phoneLabel: "Mobile Number (09XX-XXX-XXXX para sa SMS/Viber) *",
-      notesLabel: "Dugang Sintomas (Pananglitan: sakit kon moinom og bugnaw)",
-      hipaaNotice: "Protektado ang imong impormasyon subay sa Philippine Data Privacy Act sa 2012.",
-      backBtn: "Balik",
-      continueBtn: "Padayon",
-      confirmBtn: "Kumpirmaha ang Appointment",
-      confirmingBtn: "Gikumpirma ang Slot...",
-      confirmedTitle: "Malamposong Naka-book ang Appointment!",
-      confirmedSub: "Gipadala ang detalye sa",
-      bookingRef: "Booking Reference ID",
-      procedureLabel: "Serbisyo:",
-      specialistLabel: "Dentista:",
-      dateLabel: "Petsa:",
-      timeLabel: "Oras:",
-      patientLabel: "Pasyente:",
-      arrivalNotice:
-        "Serene Smile Dental Clinic, Mayor Jaldon St., Canelar, Zamboanga City (Atbang sa Honda Motors). Palihug abot 10 minutos sa dili pa ang gitakdang oras.",
-      doneBtn: "Nahuman Na",
-      availableDaysTitle: "Mga Adlaw nga Abli ang Klinika (Canelar Branch)",
-      timeSlotLabel: "Pagpili og Oras (Philippine Standard Time)",
-      noPrepaymentNote: "100% libre ang booking reservation. Tawagan ka una namo usa kumpirmahon.",
-      callAlternativeTitle: "Dili ganahan mag-fill up og form?",
-      callAlternativeSub: "Tawag o mag-Viber dayon sa receptionist",
-      errService: "Palihug pagpili una og serbisyo sa dili pa mopadayon.",
-      errDentist: "Palihug pagpili og dentista sa dili pa mopadayon.",
-      errDateTime: "Palihug pagpili og adlaw ug oras sa pagbisita.",
-      errGeneric: "Adunay problema nga nahitabo. Palihug sulayi pag-usab.",
     },
     footer: {
       desc: "Serene Smile Dental Clinic – Zamboanga City Branch. Gipangunahan ni Dr. Liam Hayes, DMD. Malumo, maayo, ug barato nga pag-atiman sa ngipon sa Mayor Jaldon St., Canelar, Zamboanga City.",

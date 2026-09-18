@@ -1,21 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { LanguageProvider, useLanguage } from "@/lib/i18n";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ExpressBooking from "@/components/ExpressBooking";
 import ServiceCatalog, { ServiceItem } from "@/components/ServiceCatalog";
 import DentistDirectory, { DentistItem } from "@/components/DentistDirectory";
 import Testimonials from "@/components/Testimonials";
 import ClinicInfo from "@/components/ClinicInfo";
 import Footer from "@/components/Footer";
-import dynamic from "next/dynamic";
 import FloatingHelp from "@/components/FloatingHelp";
-
-const BookingModal = dynamic(() => import("@/components/BookingModal"), {
-  ssr: false,
-});
+import { openCalendly } from "@/lib/calendly";
 import {
   Sparkles,
   ShieldCheck,
@@ -27,26 +22,17 @@ import {
 
 function MainContent() {
   const { t } = useLanguage();
-  const [bookingOpen, setBookingOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
-  const [selectedDentist, setSelectedDentist] = useState<DentistItem | null>(null);
 
   const handleOpenBooking = () => {
-    setSelectedService(null);
-    setSelectedDentist(null);
-    setBookingOpen(true);
+    openCalendly();
   };
 
   const handleSelectService = (service: ServiceItem) => {
-    setSelectedService(service);
-    setSelectedDentist(null);
-    setBookingOpen(true);
+    openCalendly({ serviceName: service.name });
   };
 
   const handleSelectDentist = (dentist: DentistItem) => {
-    setSelectedDentist(dentist);
-    setSelectedService(null);
-    setBookingOpen(true);
+    openCalendly({ dentistName: dentist.name });
   };
 
   const perkIcons = [
@@ -77,13 +63,10 @@ function MainContent() {
         {/* 1. Hero Section matching business card aesthetic */}
         <Hero onOpenBooking={handleOpenBooking} />
 
-        {/* 2. 1-Step Express Booking (For Non-Tech Users) */}
-        <ExpressBooking />
-
-        {/* 3. Trusted Dental Services for the Whole Family */}
+        {/* 2. Trusted Dental Services for the Whole Family */}
         <ServiceCatalog onSelectService={handleSelectService} />
 
-        {/* 4. Qualified Doctors Section */}
+        {/* 3. Qualified Doctors Section */}
         <DentistDirectory onSelectDentist={handleSelectDentist} />
 
         {/* 5. What People Say About Us */}
@@ -130,14 +113,6 @@ function MainContent() {
 
       {/* Global Footer */}
       <Footer />
-
-      {/* Interactive Booking Modal */}
-      <BookingModal
-        isOpen={bookingOpen}
-        onClose={() => setBookingOpen(false)}
-        preselectedService={selectedService}
-        preselectedDentist={selectedDentist}
-      />
 
       {/* User-Friendly Floating Help & Mobile Quick Booking Bar */}
       <FloatingHelp onOpenBooking={handleOpenBooking} />

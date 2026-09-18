@@ -99,9 +99,6 @@ export default function Footer() {
               <span className="px-2.5 py-1 bg-slate-900 rounded-lg text-[10px] text-amber-300 font-semibold border border-[#d4af37]/30">
                 PDA Member
               </span>
-              <span className="px-2.5 py-1 bg-slate-900 rounded-lg text-[10px] text-sky-300 font-semibold border border-sky-600/30">
-                GCash / Maya Ready
-              </span>
             </div>
           </div>
         </div>
