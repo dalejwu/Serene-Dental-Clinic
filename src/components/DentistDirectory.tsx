@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   MapPin,
   Info,
+  Calendar,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { DEFAULT_DENTISTS } from "@/lib/defaultData";
@@ -27,7 +28,7 @@ interface DentistDirectoryProps {
   onSelectDentist?: (dentist: DentistItem) => void;
 }
 
-export default function DentistDirectory({ onSelectDentist: _onSelectDentist }: DentistDirectoryProps = {}) {
+export default function DentistDirectory({ onSelectDentist }: DentistDirectoryProps = {}) {
   const { t } = useLanguage();
   const [dentists, setDentists] = useState<DentistItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -174,7 +175,7 @@ export default function DentistDirectory({ onSelectDentist: _onSelectDentist }: 
       {/* ======================================================== */}
       {activeDentistModal && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/40 backdrop-blur-xs animate-in fade-in duration-200"
           onClick={() => setActiveDentistModal(null)}
           role="dialog"
           aria-modal="true"
@@ -249,6 +250,31 @@ export default function DentistDirectory({ onSelectDentist: _onSelectDentist }: 
                 <p className="text-sm text-slate-700 leading-relaxed">
                   {activeDentistModal.bio}
                 </p>
+              </div>
+
+              {/* Action Bar */}
+              <div className="pt-4 border-t border-slate-100 flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const doc = activeDentistModal;
+                    setActiveDentistModal(null);
+                    if (onSelectDentist) {
+                      onSelectDentist(doc);
+                    }
+                  }}
+                  className="flex-1 h-12 rounded-2xl bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] hover:from-[#e8c679] hover:via-[#d4af37] hover:to-[#b3882a] text-slate-950 font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-amber-950/10 transition-all cursor-pointer"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>Book Consultation with {activeDentistModal.name.split(",")[0]}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveDentistModal(null)}
+                  className="h-12 px-5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>

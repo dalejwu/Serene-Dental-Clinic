@@ -3,7 +3,6 @@
 import React from "react";
 import {
   Calendar,
-  Phone,
   Sparkles,
   Star,
   Award,
@@ -62,26 +61,16 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                 </div>
               </div>
 
-              {/* Action Buttons: Book Online (Primary) & Direct Call (Emergency/Direct) */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+              {/* Action Button: Book Appointment */}
+              <div className="flex flex-wrap items-center gap-3 pt-1">
                 <button
                   type="button"
                   onClick={onOpenBooking}
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] hover:from-[#e8c679] hover:via-[#d4af37] hover:to-[#b3882a] text-slate-950 font-bold text-sm sm:text-base px-6 py-3.5 rounded-2xl shadow-lg shadow-amber-900/15 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border border-amber-200/50 whitespace-nowrap shrink-0"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] hover:from-[#e8c679] hover:via-[#d4af37] hover:to-[#b3882a] text-slate-950 font-bold text-sm sm:text-base px-6 py-3.5 rounded-2xl shadow-lg shadow-amber-900/15 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border border-amber-200/50 whitespace-nowrap shrink-0"
                 >
                   <Calendar className="w-5 h-5 text-slate-900 shrink-0" />
                   <span className="whitespace-nowrap">{t.hero.ctaBook}</span>
                 </button>
-
-                <a
-                  href="tel:09992258329"
-                  className="inline-flex items-center justify-center gap-2 bg-sky-50/80 hover:bg-sky-100/90 text-sky-950 font-bold text-sm sm:text-base px-4 sm:px-5 py-3.5 rounded-2xl border border-sky-200/80 shadow-2xs hover:shadow-xs transition-all tabular-nums whitespace-nowrap shrink-0"
-                >
-                  <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">
-                    <Phone className="w-3 h-3" />
-                  </div>
-                  <span className="whitespace-nowrap">0999 225 8329</span>
-                </a>
               </div>
 
               {/* Social Proof Avatars Row */}

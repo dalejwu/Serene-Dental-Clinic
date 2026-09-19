@@ -33,7 +33,7 @@ export default function Footer() {
             <div className="flex flex-col gap-1.5 pt-1 text-slate-300 font-medium">
               <span>🇵🇭 Zamboanga City Branch</span>
               <a
-                href="https://www.facebook.com/p/Smile-Today-Dental-Clinic-Zamboanga-City-Branch-61583099436372/"
+                href="https://www.facebook.com/isa.adil.92"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-amber-400 hover:text-amber-300 text-[11px] underline underline-offset-2 flex items-center gap-1"
@@ -67,7 +67,7 @@ export default function Footer() {
                 <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">
                   <Phone className="w-3 h-3" />
                 </div>
-                <a href="tel:09992258329" className="text-white font-semibold tabular-nums hover:text-amber-300">0999 225 8329</a>
+                <a href="tel:+639926312712" className="text-white font-semibold tabular-nums hover:text-amber-300">0992 631 2712</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">

@@ -149,7 +149,7 @@ export default function OGImage() {
         >
           <span>📍 Mayor Jaldon St., Canelar, Zamboanga City</span>
           <span style={{ color: "#d4af37" }}>•</span>
-          <span>📞 0999 225 8329</span>
+          <span>📞 0992 631 2712</span>
           <span style={{ color: "#d4af37" }}>•</span>
           <span>Mon–Sat 9AM–5PM</span>
         </div>

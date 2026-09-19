@@ -112,7 +112,12 @@ footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
   z-index: 10;
 }
 
-/* Prevent layout shift & scroll overflow */
+/* Prevent layout shift, scroll overflow & enable smooth section navigation */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
 html, body {
   max-width: 100%;
   overflow-x: hidden;

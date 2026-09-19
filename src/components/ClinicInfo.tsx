@@ -31,8 +31,8 @@ export default function ClinicInfo() {
             </div>
             <div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-[#996515]">{t.clinicInfo.contactBarDirect}</div>
-              <a href="tel:09992258329" className="text-base font-extrabold text-slate-900 hover:text-[#0284c7] transition-colors tabular-nums">
-                0999 225 8329
+              <a href="tel:+639926312712" className="text-base font-extrabold text-slate-900 hover:text-[#0284c7] transition-colors tabular-nums">
+                0992 631 2712
               </a>
             </div>
           </div>

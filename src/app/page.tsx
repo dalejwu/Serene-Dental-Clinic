@@ -9,9 +9,8 @@ import DentistDirectory, { DentistItem } from "@/components/DentistDirectory";
 import Testimonials from "@/components/Testimonials";
 import ClinicInfo from "@/components/ClinicInfo";
 import Footer from "@/components/Footer";
-import FloatingHelp from "@/components/FloatingHelp";
 import ServiceDetailModal from "@/components/ServiceDetailModal";
-import { openCalendly } from "@/lib/calendly";
+import CalendlyModal from "@/components/CalendlyModal";
 import {
   Sparkles,
   ShieldCheck,
@@ -25,9 +24,14 @@ function MainContent() {
   const { t } = useLanguage();
 
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [bookingService, setBookingService] = useState<ServiceItem | null>(null);
+  const [bookingDentist, setBookingDentist] = useState<DentistItem | null>(null);
 
   const handleOpenBooking = () => {
-    openCalendly();
+    setBookingService(null);
+    setBookingDentist(null);
+    setIsBookingModalOpen(true);
   };
 
   const handleSelectService = (service: ServiceItem) => {
@@ -36,13 +40,17 @@ function MainContent() {
 
   const handleBookFromModal = () => {
     if (selectedService) {
-      openCalendly({ serviceName: selectedService.name });
+      setBookingService(selectedService);
+      setBookingDentist(null);
       setSelectedService(null);
+      setIsBookingModalOpen(true);
     }
   };
 
   const handleSelectDentist = (dentist: DentistItem) => {
-    openCalendly({ dentistName: dentist.name });
+    setBookingService(null);
+    setBookingDentist(dentist);
+    setIsBookingModalOpen(true);
   };
 
   const perkIcons = [
@@ -115,9 +123,6 @@ function MainContent() {
       {/* Global Footer */}
       <Footer />
 
-      {/* User-Friendly Floating Help & Mobile Quick Booking Bar */}
-      <FloatingHelp onOpenBooking={handleOpenBooking} />
-
       {/* Service Detail Modal */}
       {selectedService && (
         <ServiceDetailModal
@@ -126,6 +131,14 @@ function MainContent() {
           onBook={handleBookFromModal}
         />
       )}
+
+      {/* Brand-Protected Native Appointment Booking Modal (Chat-First & Inline Embed) */}
+      <CalendlyModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        preselectedService={bookingService}
+        preselectedDentist={bookingDentist}
+      />
     </div>
   );
 }

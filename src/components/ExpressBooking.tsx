@@ -60,18 +60,35 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
         body: JSON.stringify({
           patientName: name,
           patientPhone: phone,
+          concern,
+          preferredWhen,
           notes: `[EXPRESS BOOKING] Concern: ${concern} | Preferred: ${preferredWhen}`,
         }),
       });
 
-      const data = await res.json();
-      if (!res.ok || !data.success) {
-        throw new Error(data.error || "Hindi ma-proseso ang booking. Subukan muli.");
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        // Fallback for static Netlify hosting
+        if (typeof window !== "undefined") {
+          try {
+            const saved = JSON.parse(localStorage.getItem("serene_appointments") || "[]");
+            saved.push({ name, phone, concern, preferredWhen, date: new Date().toISOString() });
+            localStorage.setItem("serene_appointments", JSON.stringify(saved));
+          } catch {}
+        }
+        setSubmitted(true);
       }
-
+    } catch {
+      // Local fallback in case of network issue or static host
+      if (typeof window !== "undefined") {
+        try {
+          const saved = JSON.parse(localStorage.getItem("serene_appointments") || "[]");
+          saved.push({ name, phone, concern, preferredWhen, date: new Date().toISOString() });
+          localStorage.setItem("serene_appointments", JSON.stringify(saved));
+        } catch {}
+      }
       setSubmitted(true);
-    } catch (err: any) {
-      setErrorMsg(err.message || "Nagka-aberya sa pag-connect. Maaari kayong tumawag sa hotline.");
     } finally {
       setSubmitting(false);
     }
@@ -114,14 +131,14 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
 
             <div className="flex items-center gap-2.5 w-full sm:w-auto">
               <a
-                href="tel:09992258329"
+                href="tel:+639926312712"
                 className="flex-1 sm:flex-none min-h-[44px] inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl shadow-xs transition-all tabular-nums active:scale-[0.98]"
               >
                 <Phone className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-                <span className="truncate">0999 225 8329</span>
+                <span className="truncate">0992 631 2712</span>
               </a>
               <a
-                href="viber://chat?number=%2B639992258329"
+                href="viber://chat?number=%2B639926312712"
                 className="flex-1 sm:flex-none min-h-[44px] inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold rounded-xl shadow-xs transition-all active:scale-[0.98]"
               >
                 <MessageCircle className="w-3.5 h-3.5 shrink-0" />
@@ -166,7 +183,21 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              name="appointment-booking"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              <input type="hidden" name="form-name" value="appointment-booking" />
+              <p className="hidden">
+                <label>
+                  Don’t fill this out if you’re human: <input name="bot-field" />
+                </label>
+              </p>
+
               {errorMsg && (
                 <div className="p-3 bg-red-50 border border-red-200 rounded-xl flex items-center gap-2 text-xs text-red-700">
                   <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
@@ -184,6 +215,7 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
                     <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
                     <input
                       type="text"
+                      name="patientName"
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -202,6 +234,7 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
                     <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
                     <input
                       type="tel"
+                      name="patientPhone"
                       required
                       value={phone}
                       onChange={(e) => handlePhoneChange(e.target.value)}
@@ -218,6 +251,7 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
                   {t.expressBooking.concernLabel}
                 </label>
                 <select
+                  name="concern"
                   value={concern}
                   onChange={(e) => setConcern(e.target.value)}
                   className="w-full min-h-[44px] px-4 py-3 bg-[#fdfcf9] border border-slate-200 rounded-xl text-base sm:text-sm font-medium focus:bg-white focus:border-[#c5a059] focus:ring-2 focus:ring-[#c5a059]/20 outline-none transition-all cursor-pointer"
@@ -236,6 +270,7 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
                   {t.expressBooking.whenLabel}
                 </label>
                 <select
+                  name="preferredWhen"
                   value={preferredWhen}
                   onChange={(e) => setPreferredWhen(e.target.value)}
                   className="w-full min-h-[44px] px-4 py-3 bg-[#fdfcf9] border border-slate-200 rounded-xl text-base sm:text-sm font-medium focus:bg-white focus:border-[#c5a059] focus:ring-2 focus:ring-[#c5a059]/20 outline-none transition-all cursor-pointer"

@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://serenedental.ph"),
   title: "Serene Dental Clinic | Zamboanga City Branch • Dr. Liam Hayes, DMD",
   description:
-    "Gentle, aesthetic, and safe-space dental clinic located on Mayor Jaldon St., Canelar, Zamboanga City. Swiss Airflow cleaning, braces, wisdom tooth extraction, and cosmetic dentistry. Call 0999 225 8329.",
+    "Gentle, aesthetic, and safe-space dental clinic located on Mayor Jaldon St., Canelar, Zamboanga City. Swiss Airflow cleaning, braces, wisdom tooth extraction, and cosmetic dentistry. Call 0992 631 2712.",
   icons: {
     icon: "/images/logo.svg",
   },
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Serene Dental Clinic | Zamboanga City",
     description:
-      "Gentle, aesthetic dental care in Canelar, Zamboanga City. Call 0999 225 8329.",
+      "Gentle, aesthetic dental care in Canelar, Zamboanga City. Call 0992 631 2712.",
   },
 };
 
