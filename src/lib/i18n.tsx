@@ -122,6 +122,12 @@ export interface Translations {
     subheading: string;
     verifiedPatient: string;
   };
+  serviceModal: {
+    howToPrepare: string;
+    painComfort: string;
+    bookProcedure: string;
+    close: string;
+  };
   perks: {
     badge: string;
     heading: string;
@@ -144,6 +150,10 @@ export interface Translations {
     fri: string;
     sat: string;
     sun: string;
+    closedStatus: string;
+    appointmentOnlyNote: string;
+    getDirections: string;
+    openInMaps: string;
     closedEmergency: string;
     faqBadge: string;
     faqHeading: string;
@@ -293,10 +303,16 @@ const translations: Record<Language, Translations> = {
       yearsExp: "y exp",
     },
     testimonials: {
-      heading: "What People Say About",
+      heading: "What People Say About ",
       headingHighlight: "Us",
       subheading: "Real experiences from Filipino families who found stress-free dental care with us.",
       verifiedPatient: "Verified Patient",
+    },
+    serviceModal: {
+      howToPrepare: "How to Prepare",
+      painComfort: "Pain & Comfort",
+      bookProcedure: "Book This Procedure",
+      close: "Close",
     },
     perks: {
       badge: "The Serene Dental Safe-Space Experience",
@@ -350,6 +366,10 @@ const translations: Record<Language, Translations> = {
       fri: "Sunday",
       sat: "Public Holidays",
       sun: "Emergency Consultation",
+      closedStatus: "Closed",
+      appointmentOnlyNote: "Clinic visits are by pre-scheduled appointment only (No walk-ins)",
+      getDirections: "Get Directions →",
+      openInMaps: "Open in Google Maps →",
       closedEmergency: "By Appointment / Emergency",
       faqBadge: "Frequently Asked Questions",
       faqHeading: "Everything you need to know before visiting",
@@ -395,13 +415,13 @@ const translations: Record<Language, Translations> = {
       whyUs: "Bakit Kami",
       info: "Lokasyon at Oras",
       bookNow: "Mag-book ng Slot",
-      openToday: "Bukas Mon-Sat",
+      openToday: "Bukas Lunes–Sabado",
       callEmergency: "Hotline: 0999 225 8329",
       locationShort: "Canelar, Zamboanga City",
     },
     topBanner: {
       badge: "CANELAR, ZAMBOANGA CITY",
-      text: "Bukas Lunes hanggang Sabado (9:00 AM – 5:00 PM) • By Appointment Lamang • Hotline: ",
+      text: "Bukas Lunes hanggang Sabado (9:00 AM – 5:00 PM) • Sa Pamamagitan Lamang ng Appointment • Hotline: ",
       callText: "0999 225 8329",
     },
     hero: {
@@ -419,7 +439,7 @@ const translations: Record<Language, Translations> = {
       sameDaySub: "Walang ngilo at walang masakit na pagkaskas",
       suiteTitle: "Serene Dental Clinic",
       suiteLocation: "Mayor Jaldon St., Canelar, Zamboanga City",
-      acceptingBadge: "Bukas Mon–Sat (9AM–5PM) • By Appointment",
+      acceptingBadge: "Bukas Lun–Sab (9AM–5PM) • Sa Pamamagitan ng Appointment",
       popularBadge: "Pinakasikat",
       popularTime: "45 minutong sesyon",
       sampleProcedure: "Swiss EMS Airflow® Linis at Checkup",
@@ -516,10 +536,16 @@ const translations: Record<Language, Translations> = {
       yearsExp: "Taon sa Praktis",
     },
     testimonials: {
-      heading: "Ang Sinasabi ng mga Pasyente Tungkol sa",
+      heading: "Ang Sinasabi ng mga Pasyente Tungkol sa ",
       headingHighlight: "Amin",
       subheading: "Tunay na karanasan mula sa mga pamilyang nakaranas ng magaan at walang takot na dental care.",
       verifiedPatient: "Kumpirmadong Pasyente",
+    },
+    serviceModal: {
+      howToPrepare: "Paano Maghanda",
+      painComfort: "Kaginhawaan at Pagkontrol sa Sakit",
+      bookProcedure: "I-book ang Pamamaraang Ito",
+      close: "Isara",
     },
     perks: {
       badge: "Alagang Safe-Space ng Serene Dental",
@@ -572,7 +598,11 @@ const translations: Record<Language, Translations> = {
       monThu: "Lunes – Sabado",
       fri: "Linggo",
       sat: "Pista Opisyal",
-      sun: "Emergency",
+      sun: "Emergency na Konsultasyon",
+      closedStatus: "Sarado",
+      appointmentOnlyNote: "Ang pagbisita sa klinika ay sa pamamagitan lamang ng pre-scheduled appointment (Walang walk-in)",
+      getDirections: "Kumuha ng Direksyon →",
+      openInMaps: "Buksan sa Google Maps →",
       closedEmergency: "By Appointment / Emergency",
       faqBadge: "Mga Karaniwang Tanong",
       faqHeading: "Lahat ng kailangan mong malaman bago bumisita",
@@ -618,21 +648,21 @@ const translations: Record<Language, Translations> = {
       whyUs: "Nganong Kami",
       info: "Lokasyon ug Oras",
       bookNow: "Mag-book og Slot",
-      openToday: "Bukas Mon-Sat",
+      openToday: "Abli Lunes–Sabado",
       callEmergency: "Hotline: 0999 225 8329",
       locationShort: "Canelar, Zamboanga City",
     },
     topBanner: {
       badge: "CANELAR, ZAMBOANGA CITY",
-      text: "Abre Lunes hangtod Sabado (9:00 AM – 5:00 PM) • By Appointment Lamang • Hotline: ",
+      text: "Abli Lunes hangtod Sabado (9:00 AM – 5:00 PM) • Pinaagi Lamang sa Appointment • Hotline: ",
       callText: "0999 225 8329",
     },
     hero: {
       badge: "Dr. Liam Hayes, DMD • Canelar, Zamboanga City",
-      titleStart: "El de tuyo lugar para el ",
-      titleHighlight: "Alegre Risa",
+      titleStart: "Ang Luwas nga Dapit alang sa Imong ",
+      titleHighlight: "Nindot nga Pahiyom",
       description:
-        "Gentil y moderno dental clinic na Canelar, Zamboanga City. Swiss EMS Airflow cleaning, braces, bunot de muela (wisdom tooth), y pasta sin miedo y dolor.",
+        "Malumo, moderno, ug mahigalaong pag-atiman sa ngipon sa Canelar, Zamboanga City. Swiss EMS Airflow cleaning, braces, bunot sa wisdom tooth, ug pasta nga walay kaba ug sakit.",
       ctaBook: "Mag-book og Appointment",
       ctaServices: "Tan-awa ang mga Serbisyo",
       ratingText: "5.0/5 Rating • Kasaligan sa Zamboanga City",
@@ -642,10 +672,10 @@ const translations: Record<Language, Translations> = {
       sameDaySub: "Walay sakit nga limpyo sa ngipon",
       suiteTitle: "Serene Dental Clinic",
       suiteLocation: "Mayor Jaldon St., Canelar, Zamboanga City",
-      acceptingBadge: "Abre Mon–Sat (9AM–5PM) • By Appointment",
+      acceptingBadge: "Abli Lun–Sab (9AM–5PM) • Pinaagi sa Appointment",
       popularBadge: "Pinakapopular",
       popularTime: "45 minutos",
-      sampleProcedure: "Swiss EMS Airflow® Limpyo ug Checkup",
+      sampleProcedure: "Swiss EMS Airflow® Paglimpyo ug Checkup",
       samplePrice: "₱1,200 – ₱2,200",
       earliestSlot: "Naay bakante karong semanaha",
       onDutyTitle: "Punong Dentista",
@@ -736,13 +766,19 @@ const translations: Record<Language, Translations> = {
       prcVerified: "PRC Board Certified",
       availableDaysLabel: "Adlaw sa Klinika:",
       bookWith: "Mag-book kang",
-      yearsExp: "tuig kasinatian",
+      yearsExp: "ka tuig nga kasinatian",
     },
     testimonials: {
-      heading: "Ang Gisulti sa mga Tawo Bahin Kan",
-      headingHighlight: "Amo",
-      subheading: "Tinuod nga kasinatian gikan sa mga pamilyang nakasinati og malumo ug walay kahadlok nga pag-atiman.",
+      heading: "Ang Gisulti sa mga Pasyente Bahin sa ",
+      headingHighlight: "Amoang Serbisyo",
+      subheading: "Tinuod nga kasinatian gikan sa mga pamilyang nakasinati og malumo ug walay kahadlok nga pag-atiman sa ngipon.",
       verifiedPatient: "Kumpirmadong Pasyente",
+    },
+    serviceModal: {
+      howToPrepare: "Unsaon Pag-andam",
+      painComfort: "Kahupayan ug Sakit",
+      bookProcedure: "I-book Kini nga Pagtambal",
+      close: "Isira",
     },
     perks: {
       badge: "Ang Serene Dental Safe-Space Experience",
@@ -794,8 +830,12 @@ const translations: Record<Language, Translations> = {
       hoursTitle: "Oras sa Klinika",
       monThu: "Lunes – Sabado",
       fri: "Domingo",
-      sat: "Public Holidays",
-      sun: "Emergency",
+      sat: "Mga Piyesta Opisyal",
+      sun: "Emergency nga Konsultasyon",
+      closedStatus: "Sirado",
+      appointmentOnlyNote: "Ang pagbisita sa klinika pinaagi lamang sa naka-iskedyul daan nga appointment (Walay walk-in)",
+      getDirections: "Tultol Padulong sa Klinika →",
+      openInMaps: "Ablihi sa Google Maps →",
       closedEmergency: "By Appointment / Emergency",
       faqBadge: "Kasagarang Pangutana",
       faqHeading: "Tanan nga angay nimong mahibaloan sa dili pa moduaw",

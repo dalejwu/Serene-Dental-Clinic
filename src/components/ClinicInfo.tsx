@@ -11,6 +11,7 @@ import {
   Phone,
   Mail,
   Sparkles,
+  Navigation,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
@@ -50,17 +51,26 @@ export default function ClinicInfo() {
           </div>
 
           {/* Address */}
-          <div className="flex items-center gap-4 md:border-l border-slate-200/80 md:pl-6">
-            <div className="w-12 h-12 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0 shadow-xs">
+          <a
+            href="https://maps.google.com/?q=Mayor+Jaldon+St+Canelar+Zamboanga+City"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 md:border-l border-slate-200/80 md:pl-6 group"
+          >
+            <div className="w-12 h-12 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0 shadow-xs group-hover:bg-[#0369a1] transition-colors">
               <MapPin className="w-5 h-5" />
             </div>
             <div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-[#996515]">{t.clinicInfo.contactBarBranch}</div>
-              <div className="text-xs sm:text-sm font-bold text-slate-900">
+              <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors">
                 Mayor Jaldon, Canelar, Zamboanga City
               </div>
+              <div className="text-[10px] text-[#0284c7] font-semibold mt-0.5 flex items-center gap-1">
+                <Navigation className="w-3 h-3" />
+                <span>{t.clinicInfo.getDirections}</span>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
 
         {/* Grid: Hours & Canelar Location */}
@@ -90,6 +100,15 @@ export default function ClinicInfo() {
                 <p className="text-xs text-slate-600 leading-relaxed">
                   {t.clinicInfo.addressText}
                 </p>
+                <a
+                  href="https://maps.google.com/?q=Mayor+Jaldon+St+Canelar+Zamboanga+City"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#0284c7] hover:text-[#0369a1] transition-colors pt-1"
+                >
+                  <Navigation className="w-3 h-3" />
+                  <span>{t.clinicInfo.openInMaps}</span>
+                </a>
               </div>
 
               {/* Parking Card */}
@@ -112,16 +131,16 @@ export default function ClinicInfo() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs tabular-nums">
                 <div className="flex justify-between items-center py-1.5 border-b border-slate-200/60 text-slate-600">
-                  <span>Monday – Saturday:</span>
+                  <span>{t.clinicInfo.monThu}:</span>
                   <span className="font-semibold text-slate-900">9:00 AM – 5:00 PM</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-slate-200/60 text-slate-600">
-                  <span>Sunday:</span>
-                  <span className="font-semibold text-slate-400">Closed</span>
+                  <span>{t.clinicInfo.fri}:</span>
+                  <span className="font-semibold text-slate-400">{t.clinicInfo.closedStatus}</span>
                 </div>
                 <div className="col-span-1 sm:col-span-2 flex items-center gap-1.5 pt-1 text-[11px] text-[#8c6210] font-semibold">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
-                  <span>Clinic visits are by pre-scheduled appointment only (No walk-ins)</span>
+                  <span>{t.clinicInfo.appointmentOnlyNote}</span>
                 </div>
               </div>
             </div>

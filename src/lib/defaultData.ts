@@ -12,6 +12,8 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 45,
     priceRange: "₱1,200 – ₱2,200",
     iconName: "ShieldCheck",
+    prepTips: "Brush and floss normally before your visit. No fasting required. Inform the dentist of any gum sensitivity.",
+    painInfo: "Completely painless — no scraping tools. Uses gentle warm water and fine powder spray. Most patients find it relaxing.",
   },
   {
     id: "srv-braces",
@@ -22,6 +24,8 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 45,
     priceRange: "₱35,000 – ₱65,000",
     iconName: "Smile",
+    prepTips: "Initial consultation includes panoramic X-ray and bite assessment. Bring any previous dental records if available.",
+    painInfo: "Mild soreness for 2–3 days after fitting and each adjustment. Over-the-counter pain relief (Mefenamic acid) is usually sufficient.",
   },
   {
     id: "srv-wisdom",
@@ -32,6 +36,8 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 60,
     priceRange: "₱4,500 – ₱10,000",
     iconName: "Zap",
+    prepTips: "Eat a light meal 2 hours before the procedure. Avoid blood thinners (aspirin) 3 days prior. Arrange someone to drive you home.",
+    painInfo: "Profound local anesthesia ensures zero pain during surgery. Post-op swelling managed with prescribed medication and ice packs for 24–48 hrs.",
   },
   {
     id: "srv-whitening",
@@ -42,6 +48,8 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 60,
     priceRange: "₱7,500 – ₱15,000",
     iconName: "Sparkles",
+    prepTips: "Professional cleaning recommended before whitening for best results. Avoid highly pigmented foods 24 hours before.",
+    painInfo: "Minimal sensitivity possible for 24–48 hours post-treatment. Sensitivity toothpaste provided for home care.",
   },
   {
     id: "srv-restoration",
@@ -52,6 +60,8 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 35,
     priceRange: "₱900 – ₱1,800",
     iconName: "Wrench",
+    prepTips: "No special preparation needed. Brush normally before your visit. The procedure can be done in a single appointment.",
+    painInfo: "Local anesthesia applied for deep fillings. Surface fillings are often painless without anesthesia. Zero post-procedure pain.",
   },
   {
     id: "srv-endodontics",
@@ -62,6 +72,8 @@ export const DEFAULT_SERVICES = [
     durationMinutes: 60,
     priceRange: "₱4,500 – ₱18,000",
     iconName: "Activity",
+    prepTips: "X-ray assessment required at first visit. Multiple sessions may be needed for root canal. Denture fitting requires 2–3 follow-up visits.",
+    painInfo: "Root canal performed under profound local anesthesia — modern techniques make it comparable to a filling. Mild tenderness for 1–2 days post-treatment.",
   },
 ];
 

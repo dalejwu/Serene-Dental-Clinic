@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { LanguageProvider, useLanguage } from "@/lib/i18n";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -10,6 +10,7 @@ import Testimonials from "@/components/Testimonials";
 import ClinicInfo from "@/components/ClinicInfo";
 import Footer from "@/components/Footer";
 import FloatingHelp from "@/components/FloatingHelp";
+import ServiceDetailModal from "@/components/ServiceDetailModal";
 import { openCalendly } from "@/lib/calendly";
 import {
   Sparkles,
@@ -23,12 +24,21 @@ import {
 function MainContent() {
   const { t } = useLanguage();
 
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+
   const handleOpenBooking = () => {
     openCalendly();
   };
 
   const handleSelectService = (service: ServiceItem) => {
-    openCalendly({ serviceName: service.name });
+    setSelectedService(service);
+  };
+
+  const handleBookFromModal = () => {
+    if (selectedService) {
+      openCalendly({ serviceName: selectedService.name });
+      setSelectedService(null);
+    }
   };
 
   const handleSelectDentist = (dentist: DentistItem) => {
@@ -107,6 +117,15 @@ function MainContent() {
 
       {/* User-Friendly Floating Help & Mobile Quick Booking Bar */}
       <FloatingHelp onOpenBooking={handleOpenBooking} />
+
+      {/* Service Detail Modal */}
+      {selectedService && (
+        <ServiceDetailModal
+          service={selectedService}
+          onClose={() => setSelectedService(null)}
+          onBook={handleBookFromModal}
+        />
+      )}
     </div>
   );
 }
