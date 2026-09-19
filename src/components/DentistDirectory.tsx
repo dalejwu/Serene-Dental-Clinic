@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import {
   Award,
-  Calendar,
   ArrowUpRight,
   X,
   ShieldCheck,
@@ -25,10 +24,10 @@ export interface DentistItem {
 }
 
 interface DentistDirectoryProps {
-  onSelectDentist: (dentist: DentistItem) => void;
+  onSelectDentist?: (dentist: DentistItem) => void;
 }
 
-export default function DentistDirectory({ onSelectDentist }: DentistDirectoryProps) {
+export default function DentistDirectory({ onSelectDentist: _onSelectDentist }: DentistDirectoryProps = {}) {
   const { t } = useLanguage();
   const [dentists, setDentists] = useState<DentistItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -250,22 +249,6 @@ export default function DentistDirectory({ onSelectDentist }: DentistDirectoryPr
                 <p className="text-sm text-slate-700 leading-relaxed">
                   {activeDentistModal.bio}
                 </p>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => {
-                    const doc = activeDentistModal;
-                    setActiveDentistModal(null);
-                    onSelectDentist(doc);
-                  }}
-                  className="w-full min-h-[46px] py-3.5 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] hover:from-[#e8c679] hover:via-[#d4af37] hover:to-[#b3882a] text-slate-950 font-bold text-sm rounded-xl shadow-md shadow-amber-900/15 hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer border border-amber-200/50 active:scale-[0.98]"
-                >
-                  <Calendar className="w-4 h-4 text-slate-900 shrink-0" />
-                  <span>{t.dentists.bookWith} {activeDentistModal.name.split(" ")[1] || activeDentistModal.name}</span>
-                </button>
               </div>
             </div>
           </div>
