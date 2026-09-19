@@ -46,20 +46,11 @@ function MainContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      {/* Top Banner: Immediate Call & Emergency line */}
-      <div className="bg-slate-950 text-amber-100 text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap border-b border-[#3d2f16]/60">
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
-        <span>{t.topBanner.text}</span>
-        <a href="tel:09992258329" className="underline font-bold text-[#fce8a6] hover:text-white tabular-nums whitespace-nowrap">
-          {t.topBanner.callText}
-        </a>
-      </div>
-
       {/* Primary Navigation with Official Golden Tooth Logo & Brand Wordmark */}
       <Navbar onOpenBooking={handleOpenBooking} />
 
       {/* Main Content Area */}
-      <main className="flex-1 pb-24 sm:pb-0 overflow-x-hidden">
+      <main className="flex-1 pb-0 overflow-x-hidden">
         {/* 1. Hero Section matching business card aesthetic */}
         <Hero onOpenBooking={handleOpenBooking} />
 

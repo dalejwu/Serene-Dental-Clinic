@@ -40,6 +40,11 @@ h1, h2, h3, h4, h5, h6 {
   color: #0f172a;
 }
 
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
+.bg-slate-950 h1, .bg-slate-950 h2, .bg-slate-950 h3, .bg-slate-950 h4, .bg-slate-950 h5, .bg-slate-950 h6 {
+  color: inherit;
+}
+
 /* Cursive Calligraphy font utility matching business card */
 .font-script {
   font-family: var(--font-script), cursive;

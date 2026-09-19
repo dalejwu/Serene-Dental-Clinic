@@ -5,11 +5,9 @@ import {
   Calendar,
   Phone,
   Sparkles,
-  ArrowRight,
   Star,
   Award,
   CheckCircle2,
-  Mail,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { ToothMark } from "@/components/BrandLogo";
@@ -64,36 +62,25 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                 </div>
               </div>
 
-              {/* Action Buttons: Book Online, Call & Email */}
-              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-stretch sm:items-center gap-2 sm:gap-2.5 pt-1">
+              {/* Action Buttons: Book Online (Primary) & Direct Call (Emergency/Direct) */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
                 <button
                   type="button"
                   onClick={onOpenBooking}
-                  className="flex-1 min-w-0 inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] hover:from-[#e8c679] hover:via-[#d4af37] hover:to-[#b3882a] text-slate-950 font-bold text-xs sm:text-sm px-3.5 sm:px-4 py-3 rounded-xl shadow-md shadow-amber-900/15 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border border-amber-200/50 whitespace-nowrap"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] hover:from-[#e8c679] hover:via-[#d4af37] hover:to-[#b3882a] text-slate-950 font-bold text-sm sm:text-base px-6 py-3.5 rounded-2xl shadow-lg shadow-amber-900/15 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border border-amber-200/50 whitespace-nowrap shrink-0"
                 >
-                  <Calendar className="w-4 h-4 text-slate-900 shrink-0" />
-                  <span className="truncate">{t.hero.ctaBook}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-800 shrink-0 hidden md:inline" />
+                  <Calendar className="w-5 h-5 text-slate-900 shrink-0" />
+                  <span className="whitespace-nowrap">{t.hero.ctaBook}</span>
                 </button>
 
                 <a
                   href="tel:09992258329"
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-sky-50/80 hover:bg-sky-100 text-sky-950 font-bold text-xs sm:text-sm px-3 sm:px-3.5 py-3 rounded-xl border border-sky-200/80 shadow-2xs hover:shadow-xs transition-all tabular-nums whitespace-nowrap shrink-0"
+                  className="inline-flex items-center justify-center gap-2 bg-sky-50/80 hover:bg-sky-100/90 text-sky-950 font-bold text-sm sm:text-base px-4 sm:px-5 py-3.5 rounded-2xl border border-sky-200/80 shadow-2xs hover:shadow-xs transition-all tabular-nums whitespace-nowrap shrink-0"
                 >
-                  <div className="w-4 h-4 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">
-                    <Phone className="w-2.5 h-2.5" />
+                  <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">
+                    <Phone className="w-3 h-3" />
                   </div>
-                  <span>0999 225 8329</span>
-                </a>
-
-                <a
-                  href="mailto:contact@serenedentalclinic.com?subject=Appointment%20Booking%20Inquiry%20-%20Serene%20Dental%20Clinic&body=Hello%20Serene%20Dental%20Clinic,%0D%0A%0D%0AI%20would%20like%20to%20request%20an%20appointment.%0D%0A%0D%0AFull%20Name:%20%0D%0APhone%20Number:%20%0D%0APreferred%20Procedure:%20%0D%0APreferred%20Date%20%26%20Time:%20%0D%0A%0D%0AThank%20you!"
-                  className="inline-flex items-center justify-center gap-1.5 bg-emerald-50/80 hover:bg-emerald-100 text-emerald-950 font-bold text-xs sm:text-sm px-3 sm:px-3.5 py-3 rounded-xl border border-emerald-200/80 shadow-2xs hover:shadow-xs transition-all whitespace-nowrap shrink-0"
-                >
-                  <div className="w-4 h-4 rounded-full bg-emerald-600 flex items-center justify-center text-white shrink-0">
-                    <Mail className="w-2.5 h-2.5" />
-                  </div>
-                  <span>Email Us</span>
+                  <span className="whitespace-nowrap">0999 225 8329</span>
                 </a>
               </div>
 
@@ -103,7 +90,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <div className="flex -space-x-2.5 overflow-hidden shrink-0">
                     <img
                       className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120"
+                      src="/images/patient_1.webp"
                       alt="Patient 1"
                       width={40}
                       height={40}
@@ -112,7 +99,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                     />
                     <img
                       className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120"
+                      src="/images/patient_2.webp"
                       alt="Patient 2"
                       width={40}
                       height={40}
@@ -121,7 +108,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                     />
                     <img
                       className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120"
+                      src="/images/patient_3.webp"
                       alt="Patient 3"
                       width={40}
                       height={40}

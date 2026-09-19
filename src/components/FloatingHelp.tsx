@@ -14,30 +14,7 @@ export default function FloatingHelp({ onOpenBooking }: FloatingHelpProps) {
 
   return (
     <>
-      {/* 1. Mobile Bottom Sticky Booking & Call Bar with Safe Area Support */}
-      <aside aria-label="Mobile quick actions" className="sm:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-[#ede2d1] px-4 pt-2.5 pb-safe shadow-2xl">
-        <div className="flex items-center gap-2.5">
-          <a
-            href="tel:09992258329"
-            className="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 py-2.5 px-3 bg-sky-50 hover:bg-sky-100 text-sky-950 text-xs font-bold rounded-xl border border-sky-200 transition-colors tabular-nums active:scale-[0.98]"
-          >
-            <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">
-              <Phone className="w-2.5 h-2.5" />
-            </div>
-            <span className="truncate">0999 225 8329</span>
-          </a>
-
-          <button
-            onClick={onOpenBooking}
-            className="flex-2 min-h-[44px] flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] text-slate-950 text-xs font-bold rounded-xl shadow-md shadow-amber-950/15 transition-all active:scale-[0.98] cursor-pointer border border-amber-200/50"
-          >
-            <Calendar className="w-4 h-4 text-slate-950 shrink-0" />
-            <span className="truncate">{t.help.bookMobileBar}</span>
-          </button>
-        </div>
-      </aside>
-
-      {/* 2. Desktop Floating Help / Viber Desk (Bottom Right) */}
+      {/* Desktop Floating Help / Viber Desk (Bottom Right) */}
       <div className="hidden sm:block fixed bottom-6 right-6 z-40">
         {showViberCard && (
           <div className="mb-3 w-80 bg-white rounded-2xl p-5 shadow-2xl border border-[#ede2d1] animate-in slide-in-from-bottom-3 duration-200 space-y-4">

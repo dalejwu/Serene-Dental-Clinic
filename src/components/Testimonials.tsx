@@ -12,7 +12,7 @@ export default function Testimonials() {
       name: "Maria Fatima Alih",
       role: "Canelar Resident & Mom of 2",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150",
+      avatar: "/images/patient_1.webp",
       quote:
         "Super gentle! I used to dread dental visits, but Dr. Liam's Swiss EMS Airflow cleaning was completely painless—no scraping metal sounds. The clinic along Mayor Jaldon is a true safe space!",
       procedure: "Swiss EMS Airflow® Prophylaxis",
@@ -21,7 +21,7 @@ export default function Testimonials() {
       name: "Engr. Mark Anthony Tan",
       role: "Tetuan, Zamboanga City",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150",
+      avatar: "/images/patient_2.webp",
       quote:
         "Very easy booking. The receptionist called me right away to confirm my slot across Honda Motors Canelar. Fast, honest pricing, and my dental pasta was done seamlessly.",
       procedure: "Aesthetic Composite Filling",
@@ -30,7 +30,7 @@ export default function Testimonials() {
       name: "Al-Zuhayr Hadjirul",
       role: "WMSU University Student",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150",
+      avatar: "/images/patient_3.webp",
       quote:
         "Had my impacted wisdom tooth removed and braces consultation here. Zero swelling the next day! Doc Liam explains every step gently before touching your teeth.",
       procedure: "Wisdom Tooth Removal & Braces",

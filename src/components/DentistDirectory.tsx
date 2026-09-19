@@ -7,9 +7,7 @@ import {
   ArrowUpRight,
   X,
   ShieldCheck,
-  Clock,
   MapPin,
-  Phone,
   Info,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
@@ -165,17 +163,6 @@ export default function DentistDirectory({ onSelectDentist }: DentistDirectoryPr
                     </p>
                   </div>
                 </div>
-
-                {/* Clinic Hours Info Badge */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-medium">
-                  <span className="flex items-center gap-1.5 text-[#8c6210] font-semibold text-[11px]">
-                    <Clock className="w-3.5 h-3.5 text-[#c5a059] shrink-0" />
-                    <span>Mon – Sat: 9AM – 5PM</span>
-                  </span>
-                  <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md">
-                    By Appointment
-                  </span>
-                </div>
               </div>
             ))}
           </div>
@@ -265,23 +252,6 @@ export default function DentistDirectory({ onSelectDentist }: DentistDirectoryPr
                 </p>
               </div>
 
-              {/* Schedule & Consultation Availability */}
-              <div className="space-y-2.5 p-4 rounded-2xl bg-[#fcf9f2] border border-[#eadbbf]">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#8c6210]">
-                  <Clock className="w-4 h-4 text-[#d4af37]" />
-                  <span>Clinic Consultation Schedule</span>
-                </div>
-                <div className="flex items-center justify-between flex-wrap gap-2 text-xs">
-                  <span className="text-slate-600 font-medium">Clinic Hours:</span>
-                  <span className="font-extrabold text-slate-900 bg-white px-3 py-1 rounded-xl border border-[#eadbc3] shadow-2xs">
-                    Monday – Saturday: 9:00 AM – 5:00 PM
-                  </span>
-                </div>
-                <p className="text-[11px] text-slate-500">
-                  Open Monday to Saturday (9:00 AM – 5:00 PM) • By Appointment Only
-                </p>
-              </div>
-
               {/* Action Buttons */}
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <button
@@ -291,19 +261,11 @@ export default function DentistDirectory({ onSelectDentist }: DentistDirectoryPr
                     setActiveDentistModal(null);
                     onSelectDentist(doc);
                   }}
-                  className="flex-1 min-h-[46px] py-3 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] hover:from-[#e8c679] hover:via-[#d4af37] hover:to-[#b3882a] text-slate-950 font-bold text-sm rounded-xl shadow-md shadow-amber-900/15 hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer border border-amber-200/50 active:scale-[0.98]"
+                  className="w-full min-h-[46px] py-3.5 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] hover:from-[#e8c679] hover:via-[#d4af37] hover:to-[#b3882a] text-slate-950 font-bold text-sm rounded-xl shadow-md shadow-amber-900/15 hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer border border-amber-200/50 active:scale-[0.98]"
                 >
                   <Calendar className="w-4 h-4 text-slate-900 shrink-0" />
                   <span>{t.dentists.bookWith} {activeDentistModal.name.split(" ")[1] || activeDentistModal.name}</span>
                 </button>
-
-                <a
-                  href="tel:09992258329"
-                  className="min-h-[46px] px-4 py-3 bg-sky-50/80 hover:bg-sky-100 text-sky-950 font-bold text-xs rounded-xl border border-sky-200 transition-all flex items-center justify-center gap-2 text-center"
-                >
-                  <Phone className="w-3.5 h-3.5 text-[#0284c7] shrink-0" />
-                  <span>Call 0999 225 8329</span>
-                </a>
               </div>
             </div>
           </div>
