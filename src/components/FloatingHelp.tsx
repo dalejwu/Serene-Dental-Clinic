@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageCircle, Phone, Calendar, X } from "lucide-react";
+import { MessageCircle, Phone, X } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
 interface FloatingHelpProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void;
 }
 
-export default function FloatingHelp({ onOpenBooking }: FloatingHelpProps) {
+export default function FloatingHelp({ onOpenBooking: _onOpenBooking }: FloatingHelpProps = {}) {
   const { t } = useLanguage();
   const [showViberCard, setShowViberCard] = useState(false);
 
