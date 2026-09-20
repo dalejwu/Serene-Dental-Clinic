@@ -132,6 +132,7 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
             <div className="flex items-center gap-2.5 w-full sm:w-auto">
               <a
                 href="tel:+639926312712"
+                aria-label="Call Serene Dental Clinic at 0992 631 2712"
                 className="flex-1 sm:flex-none min-h-[44px] inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl shadow-xs transition-all tabular-nums active:scale-[0.98]"
               >
                 <Phone className="w-3.5 h-3.5 text-sky-400 shrink-0" />

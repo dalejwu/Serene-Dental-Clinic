@@ -63,11 +63,19 @@ export default function Footer() {
               {t.footer.contactTitle}
             </h5>
             <ul className="space-y-2.5 text-slate-300">
-              <li className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">
-                  <Phone className="w-3 h-3" />
-                </div>
-                <a href="tel:+639926312712" className="text-white font-semibold tabular-nums hover:text-amber-300">0992 631 2712</a>
+              <li>
+                <a
+                  href="tel:+639926312712"
+                  aria-label="Call Serene Dental Clinic at 0992 631 2712"
+                  className="flex items-center gap-2.5 group text-slate-300 hover:text-amber-300 transition-colors"
+                >
+                  <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0 group-hover:bg-[#0369a1] transition-colors">
+                    <Phone className="w-3 h-3" />
+                  </div>
+                  <span className="text-white font-semibold tabular-nums group-hover:text-amber-300">
+                    0992 631 2712
+                  </span>
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <div className="w-5 h-5 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0">

@@ -10,6 +10,7 @@ import Testimonials from "@/components/Testimonials";
 import ClinicInfo from "@/components/ClinicInfo";
 import Footer from "@/components/Footer";
 import CalendlyModal from "@/components/CalendlyModal";
+import FloatingHelp from "@/components/FloatingHelp";
 import {
   Sparkles,
   ShieldCheck,
@@ -119,6 +120,9 @@ function MainContent() {
 
       {/* Global Footer */}
       <Footer />
+
+      {/* Persistent Floating Reception & Mobile Sticky Conversion Bar */}
+      <FloatingHelp onOpenBooking={handleOpenBooking} />
 
       {/* Brand-Protected Native Appointment Booking Modal (Chat-First) */}
       <CalendlyModal

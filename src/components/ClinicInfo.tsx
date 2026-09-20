@@ -25,17 +25,21 @@ export default function ClinicInfo() {
         {/* Top Official Contact Bar matching the business card icons */}
         <div className="p-6 rounded-3xl bg-[#fdfcf9] border border-[#ede2d1] grid grid-cols-1 md:grid-cols-3 gap-6 shadow-xs">
           {/* Phone */}
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0 shadow-xs">
+          <a
+            href="tel:+639926312712"
+            aria-label="Call Serene Dental Clinic at 0992 631 2712"
+            className="flex items-center gap-4 group cursor-pointer"
+          >
+            <div className="w-12 h-12 rounded-full bg-[#0284c7] flex items-center justify-center text-white shrink-0 shadow-xs group-hover:bg-[#0369a1] transition-colors">
               <Phone className="w-5 h-5" />
             </div>
             <div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-[#996515]">{t.clinicInfo.contactBarDirect}</div>
-              <a href="tel:+639926312712" className="text-base font-extrabold text-slate-900 hover:text-[#0284c7] transition-colors tabular-nums">
+              <span className="text-base font-extrabold text-slate-900 group-hover:text-[#0284c7] transition-colors tabular-nums">
                 0992 631 2712
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
 
           {/* Email */}
           <div className="flex items-center gap-4 md:border-l border-slate-200/80 md:pl-6">
