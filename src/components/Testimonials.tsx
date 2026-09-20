@@ -43,25 +43,6 @@ export default function Testimonials() {
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          {/* Live Google Reviews verification badge */}
-          <a
-            href="https://maps.google.com/?q=Mayor+Jaldon+St+Canelar+Zamboanga+City"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fdfaf3] border border-[#eadbc3] hover:border-[#d4af37] text-xs font-bold text-slate-800 shadow-2xs hover:shadow-xs transition-all group cursor-pointer"
-          >
-            <div className="flex items-center gap-0.5 text-amber-500">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-              ))}
-            </div>
-            <span className="font-extrabold text-[#996515]">5.0 / 5.0 Rating</span>
-            <span className="text-slate-400">•</span>
-            <span className="text-slate-600 group-hover:text-slate-900 transition-colors">
-              Verified Google Reviews &rarr;
-            </span>
-          </a>
-
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
             {t.testimonials.heading}{" "}
             <span className="font-script text-4xl sm:text-5xl font-normal text-gold-gradient block sm:inline">
@@ -84,16 +65,11 @@ export default function Testimonials() {
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] opacity-60" />
 
               <div className="space-y-4">
-                {/* 5 Stars + Verified Tag */}
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1 text-amber-400">
-                    {[...Array(rev.rating)].map((_, idx) => (
-                      <Star key={idx} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider bg-slate-100 px-2 py-0.5 rounded-md">
-                    Google Review
-                  </span>
+                {/* 5 Stars */}
+                <div className="flex items-center gap-1 text-amber-400">
+                  {[...Array(rev.rating)].map((_, idx) => (
+                    <Star key={idx} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
                 </div>
 
                 {/* Quote */}

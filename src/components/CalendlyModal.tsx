@@ -1,15 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   X,
   MessageCircle,
   MessageSquare,
   ShieldCheck,
-  Sparkles,
   Send,
-  Copy,
-  Check,
   Clock,
   MapPin,
 } from "lucide-react";
@@ -30,8 +27,6 @@ export default function CalendlyModal({
   preselectedService,
   preselectedDentist,
 }: CalendlyModalProps) {
-  const [copiedMessage, setCopiedMessage] = useState(false);
-
   // Build tailored message for Messenger and SMS
   const prefillMessage = React.useMemo(() => {
     if (preselectedService && preselectedDentist) {
@@ -68,16 +63,6 @@ export default function CalendlyModal({
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
-
-  const handleCopyMessage = async () => {
-    try {
-      await navigator.clipboard.writeText(prefillMessage);
-      setCopiedMessage(true);
-      setTimeout(() => setCopiedMessage(false), 2500);
-    } catch {
-      // ignore clipboard error
-    }
-  };
 
   if (!isOpen) return null;
 
@@ -150,103 +135,63 @@ export default function CalendlyModal({
 
           {/* Two Primary Booking Channels: Facebook Messenger & SMS */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* 1. Facebook Messenger (Refined Deep Sapphire with Clinic Gold Hairline & Amber Glow) */}
+            {/* 1. Facebook Messenger */}
             <a
               href={messengerUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#123e6b] via-[#0d2f52] to-[#081f37] hover:from-[#174d82] hover:to-[#0c2b4d] text-white shadow-xl shadow-slate-950/20 border border-[#dfba6b]/40 hover:border-[#dfba6b] flex flex-col justify-between transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer relative overflow-hidden"
+              className="group p-5 sm:p-6 rounded-3xl bg-[#fdfcf9] hover:bg-white border border-[#eadbc3] hover:border-[#0084ff]/60 shadow-2xs hover:shadow-lg hover:shadow-sky-950/5 transition-all flex flex-col justify-between space-y-4 cursor-pointer relative overflow-hidden"
             >
-              {/* Subtle Warm Amber / Gold glow in corner */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#dfba6b]/20 via-sky-400/10 to-transparent rounded-bl-full pointer-events-none" />
+              {/* Top Accent Strip */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0084ff] to-[#0284c7] opacity-70 group-hover:opacity-100 transition-opacity" />
 
-              <div className="space-y-3.5 relative z-10">
-                <div className="flex items-center justify-between">
-                  <div className="w-11 h-11 rounded-2xl bg-sky-500/20 backdrop-blur-md flex items-center justify-center shadow-xs border border-sky-400/30 text-sky-200 group-hover:text-white transition-colors">
-                    <MessageCircle className="w-5 h-5" />
-                  </div>
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide bg-sky-500/20 text-sky-200 border border-sky-400/30 backdrop-blur-xs">
-                    Messenger
-                  </span>
+              <div className="space-y-3">
+                <div className="w-11 h-11 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-[#0084ff] group-hover:scale-105 transition-transform shadow-2xs">
+                  <MessageCircle className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-lg text-white group-hover:text-sky-100 transition-colors">
+                  <h3 className="font-bold text-base sm:text-lg text-slate-900 group-hover:text-[#0084ff] transition-colors">
                     Book via Messenger
                   </h3>
-                  <p className="text-xs text-slate-200/90 mt-1 leading-relaxed">
+                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                     Chat directly with our reception team on Facebook Messenger.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-white/15 flex items-center justify-between text-xs font-bold text-sky-200 group-hover:text-white relative z-10">
-                <span>Open Messenger Chat</span>
-                <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform text-sky-300" />
+              <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0084ff]">
+                <span>Open Messenger</span>
+                <Send className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </a>
 
-            {/* 2. Direct SMS (Signature Deep Slate & Gold Theme) */}
+            {/* 2. Direct SMS */}
             <a
               href={smsUrl}
-              className="group p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#1e293b] via-[#141e2c] to-[#0d141e] hover:from-[#253347] hover:to-[#121b27] text-white shadow-xl shadow-slate-950/20 border border-[#dfba6b]/40 hover:border-[#dfba6b] flex flex-col justify-between transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer relative overflow-hidden"
+              className="group p-5 sm:p-6 rounded-3xl bg-[#fdfcf9] hover:bg-white border border-[#eadbc3] hover:border-[#dfba6b] shadow-2xs hover:shadow-lg hover:shadow-amber-950/5 transition-all flex flex-col justify-between space-y-4 cursor-pointer relative overflow-hidden"
             >
-              {/* Subtle Gold Accent in corner */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#dfba6b]/25 to-transparent rounded-bl-full pointer-events-none" />
+              {/* Top Accent Strip */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] opacity-70 group-hover:opacity-100 transition-opacity" />
 
-              <div className="space-y-3.5 relative z-10">
-                <div className="flex items-center justify-between">
-                  <div className="w-11 h-11 rounded-2xl bg-[#dfba6b]/20 backdrop-blur-md flex items-center justify-center shadow-xs border border-[#dfba6b]/35 text-[#dfba6b] group-hover:text-[#fce8a6] transition-colors">
-                    <MessageSquare className="w-5 h-5" />
-                  </div>
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide bg-[#dfba6b]/20 text-[#fce8a6] border border-[#dfba6b]/35 backdrop-blur-xs">
-                    SMS / Text
-                  </span>
+              <div className="space-y-3">
+                <div className="w-11 h-11 rounded-2xl bg-[#fcf8f0] border border-[#eadbc3] flex items-center justify-center text-[#8c6210] group-hover:scale-105 transition-transform shadow-2xs">
+                  <MessageSquare className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-lg text-white group-hover:text-[#fce8a6] transition-colors">
+                  <h3 className="font-bold text-base sm:text-lg text-slate-900 group-hover:text-[#8c6210] transition-colors">
                     Book via SMS
                   </h3>
-                  <p className="text-xs text-slate-200/90 mt-1 leading-relaxed">
+                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                     Send a quick text message to 0992 631 2712.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-white/15 flex items-center justify-between text-xs font-bold text-[#fce8a6] group-hover:text-white relative z-10">
+              <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#8c6210]">
                 <span>Send SMS Message</span>
-                <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#dfba6b]" />
+                <Send className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </a>
-          </div>
-
-          {/* Pre-filled Message Preview Box */}
-          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2.5">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-[#a07823]" />
-                Ready-to-Send Message Preview
-              </span>
-              <button
-                type="button"
-                onClick={handleCopyMessage}
-                className="text-xs font-semibold text-slate-600 hover:text-slate-900 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg hover:bg-slate-200/70 transition-colors cursor-pointer"
-              >
-                {copiedMessage ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    <span className="text-emerald-700 font-bold">Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5" />
-                    <span>Copy Text</span>
-                  </>
-                )}
-              </button>
-            </div>
-            <div className="p-3 bg-white rounded-xl border border-slate-200 text-xs text-slate-800 font-mono leading-relaxed select-all">
-              &ldquo;{prefillMessage}&rdquo;
-            </div>
           </div>
 
           {/* Clinic Hours & Location */}

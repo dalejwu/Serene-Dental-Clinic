@@ -5,7 +5,6 @@ import {
   Sparkles,
   Smile,
   ShieldCheck,
-  ArrowUpRight,
   Search,
   X,
   Clock,
@@ -27,10 +26,10 @@ export interface ServiceItem {
 }
 
 interface ServiceCatalogProps {
-  onSelectService: (service: ServiceItem) => void;
+  onSelectService?: (service: ServiceItem) => void;
 }
 
-export default function ServiceCatalog({ onSelectService }: ServiceCatalogProps) {
+export default function ServiceCatalog({ onSelectService }: ServiceCatalogProps = {}) {
   const { t } = useLanguage();
   const [services, setServices] = useState<ServiceItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -300,19 +299,10 @@ export default function ServiceCatalog({ onSelectService }: ServiceCatalogProps)
             {filteredServices.map((service, idx) => (
               <div
                 key={service.id}
-                role="button"
-                tabIndex={0}
-                onClick={() => onSelectService(service)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    onSelectService(service);
-                  }
-                }}
-                className="rounded-3xl p-6 bg-white border border-slate-200/80 hover:border-[#d4af37] focus-visible:ring-2 focus-visible:ring-[#c5a059] focus-visible:outline-none hover:shadow-xl hover:shadow-amber-950/5 transition-all duration-300 flex flex-col justify-between group cursor-pointer space-y-6 relative overflow-hidden"
+                className="rounded-3xl p-6 bg-white border border-slate-200/80 hover:border-[#dfba6b] hover:shadow-lg hover:shadow-amber-950/5 transition-all duration-300 flex flex-col justify-between group space-y-5 relative overflow-hidden"
               >
-                {/* Subtle top gold accent on hover */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Subtle top gold accent line */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] opacity-60 group-hover:opacity-100 transition-opacity" />
 
                 <div className="space-y-4">
                   {/* Clean Icon */}
@@ -320,18 +310,18 @@ export default function ServiceCatalog({ onSelectService }: ServiceCatalogProps)
                     {getServiceIcon(idx)}
                   </div>
 
-                  {/* Procedure Title & Description */}
+                  {/* Procedure Title & Full Readable Description */}
                   <div>
                     <h3 className="text-base font-bold text-slate-900 group-hover:text-[#996515] transition-colors leading-snug">
                       {service.name}
                     </h3>
-                    <p className="text-xs text-slate-600 mt-2 line-clamp-3 leading-relaxed">
+                    <p className="text-xs text-slate-600 mt-2.5 leading-relaxed">
                       {service.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Price, Duration & Arrow Action ↗ */}
+                {/* Price & Duration Info Row */}
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                   <div>
                     <div className="text-[11px] font-medium text-slate-500 flex items-center gap-1 tabular-nums">
@@ -341,14 +331,6 @@ export default function ServiceCatalog({ onSelectService }: ServiceCatalogProps)
                     <div className="text-sm font-extrabold text-slate-900 mt-0.5 tabular-nums">
                       {service.priceRange}
                     </div>
-                  </div>
-
-                  {/* Arrow Action Button */}
-                  <div
-                    className="w-9 h-9 rounded-full bg-[#fcf9f2] border border-[#eadbc3] text-slate-700 group-hover:bg-[#a07823] group-hover:text-white group-hover:border-[#a07823] flex items-center justify-center transition-all"
-                    aria-label={`Book ${service.name}`}
-                  >
-                    <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </div>
               </div>

@@ -32,12 +32,23 @@ body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* Headings with optical tracking and balanced wrapping */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  letter-spacing: -0.025em;
-  text-wrap: balance;
-  color: #0f172a;
+@layer base {
+  /* Headings with optical tracking and balanced wrapping */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    color: #0f172a;
+  }
+
+  h1[class*="text-"],
+  h2[class*="text-"],
+  h3[class*="text-"],
+  h4[class*="text-"],
+  h5[class*="text-"],
+  h6[class*="text-"] {
+    color: inherit;
+  }
 }
 
 footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,

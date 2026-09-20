@@ -4,12 +4,11 @@ import React, { useState } from "react";
 import { LanguageProvider, useLanguage } from "@/lib/i18n";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ServiceCatalog, { ServiceItem } from "@/components/ServiceCatalog";
-import DentistDirectory, { DentistItem } from "@/components/DentistDirectory";
+import ServiceCatalog from "@/components/ServiceCatalog";
+import DentistDirectory from "@/components/DentistDirectory";
 import Testimonials from "@/components/Testimonials";
 import ClinicInfo from "@/components/ClinicInfo";
 import Footer from "@/components/Footer";
-import ServiceDetailModal from "@/components/ServiceDetailModal";
 import CalendlyModal from "@/components/CalendlyModal";
 import {
   Sparkles,
@@ -23,33 +22,9 @@ import {
 function MainContent() {
   const { t } = useLanguage();
 
-  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const [bookingService, setBookingService] = useState<ServiceItem | null>(null);
-  const [bookingDentist, setBookingDentist] = useState<DentistItem | null>(null);
 
   const handleOpenBooking = () => {
-    setBookingService(null);
-    setBookingDentist(null);
-    setIsBookingModalOpen(true);
-  };
-
-  const handleSelectService = (service: ServiceItem) => {
-    setSelectedService(service);
-  };
-
-  const handleBookFromModal = () => {
-    if (selectedService) {
-      setBookingService(selectedService);
-      setBookingDentist(null);
-      setSelectedService(null);
-      setIsBookingModalOpen(true);
-    }
-  };
-
-  const handleSelectDentist = (dentist: DentistItem) => {
-    setBookingService(null);
-    setBookingDentist(dentist);
     setIsBookingModalOpen(true);
   };
 
@@ -73,10 +48,10 @@ function MainContent() {
         <Hero onOpenBooking={handleOpenBooking} />
 
         {/* 2. Trusted Dental Services for the Whole Family */}
-        <ServiceCatalog onSelectService={handleSelectService} />
+        <ServiceCatalog />
 
         {/* 3. Qualified Doctors Section */}
-        <DentistDirectory onSelectDentist={handleSelectDentist} />
+        <DentistDirectory />
 
         {/* 5. What People Say About Us */}
         <Testimonials />
@@ -123,21 +98,10 @@ function MainContent() {
       {/* Global Footer */}
       <Footer />
 
-      {/* Service Detail Modal */}
-      {selectedService && (
-        <ServiceDetailModal
-          service={selectedService}
-          onClose={() => setSelectedService(null)}
-          onBook={handleBookFromModal}
-        />
-      )}
-
-      {/* Brand-Protected Native Appointment Booking Modal (Chat-First & Inline Embed) */}
+      {/* Brand-Protected Native Appointment Booking Modal (Chat-First) */}
       <CalendlyModal
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
-        preselectedService={bookingService}
-        preselectedDentist={bookingDentist}
       />
     </div>
   );
