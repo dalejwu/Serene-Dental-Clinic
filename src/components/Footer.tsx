@@ -19,10 +19,10 @@ export default function Footer() {
                 <ToothMark size={28} />
               </div>
               <div className="flex flex-col">
-                <span className="font-script text-2xl text-amber-200 leading-none">
+                <span className="font-serif italic text-2xl text-amber-200 leading-none">
                   Serene Smile
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d4af37] mt-0.5">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#d4af37] mt-1">
                   Dental Clinic
                 </span>
               </div>

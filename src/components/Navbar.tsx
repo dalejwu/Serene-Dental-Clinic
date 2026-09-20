@@ -18,63 +18,63 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-4">
           
-          {/* 1. Official Brand Logo with Golden Tooth + S Monogram & Script Wordmark */}
+          {/* 1. Official Brand Logo with Golden Tooth + S Monogram & Editorial Wordmark */}
           <a href="#" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group min-w-0">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-b from-[#fffefc] to-[#fcf7ec] border border-[#eadbbf] flex items-center justify-center shadow-md shadow-amber-950/5 group-hover:scale-105 transition-transform shrink-0 p-1">
-              <ToothMark size={30} />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-b from-[#fffefc] to-[#fcf7ec] border border-[#eadbbf] flex items-center justify-center shadow-md shadow-amber-950/5 group-hover:scale-105 transition-transform shrink-0 p-1">
+              <ToothMark size={28} />
             </div>
             <div className="flex flex-col justify-center min-w-0">
               <div className="flex items-baseline gap-1.5 sm:gap-2 leading-none">
-                <span className="font-script text-2xl sm:text-3xl lg:text-[32px] text-slate-900 tracking-wide font-normal">
+                <span className="font-serif italic text-xl sm:text-2xl lg:text-[26px] text-slate-900 tracking-tight font-medium">
                   Serene Smile
                 </span>
-                <span className="text-[11px] sm:text-xs lg:text-[13px] font-extrabold uppercase tracking-widest text-[#996515] shrink-0">
+                <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-[#996515] shrink-0">
                   Dental Clinic
                 </span>
               </div>
             </div>
           </a>
 
-          {/* 2. Desktop Navigation Links with generous breathing room */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-9 text-sm font-semibold text-slate-700 px-6 xl:px-12">
+          {/* 2. Desktop Navigation Links - Centered and Contained to Prevent Pushing Right Controls */}
+          <nav className="hidden lg:flex items-center justify-center gap-5 xl:gap-7 text-sm font-semibold text-slate-700 flex-1 min-w-0 px-2">
             <a
               href="#services"
-              className="whitespace-nowrap hover:text-[#b8860b] transition-colors py-1.5"
+              className="whitespace-nowrap hover:text-[#b8860b] transition-colors py-1.5 px-1.5 text-center"
             >
               {t.nav.services}
             </a>
             <a
               href="#specialists"
-              className="whitespace-nowrap hover:text-[#b8860b] transition-colors py-1.5"
+              className="whitespace-nowrap hover:text-[#b8860b] transition-colors py-1.5 px-1.5 text-center"
             >
               {t.nav.dentists}
             </a>
             <a
               href="#why-us"
-              className="whitespace-nowrap hover:text-[#b8860b] transition-colors py-1.5"
+              className="whitespace-nowrap hover:text-[#b8860b] transition-colors py-1.5 px-1.5 text-center"
             >
               {t.nav.whyUs}
             </a>
             <a
               href="#info"
-              className="whitespace-nowrap hover:text-[#b8860b] transition-colors py-1.5"
+              className="whitespace-nowrap hover:text-[#b8860b] transition-colors py-1.5 px-1.5 text-center"
             >
               {t.nav.info}
             </a>
           </nav>
 
           {/* 3. Right Side: Streamlined Controls with Compact Segmented Pill */}
-          <div className="hidden sm:flex items-center gap-2 sm:gap-2.5 lg:gap-3 shrink-0">
+          <div className="hidden sm:flex items-center gap-2.5 lg:gap-3 shrink-0 ml-auto">
             
-            {/* Philippine Language Switcher - Compact Segmented Pill */}
-            <div className="h-9 p-0.5 bg-[#fcf9f2] rounded-xl border border-[#eadbbf] flex items-center shrink-0">
+            {/* Philippine Language Switcher - Zero-Shift Segmented Grid */}
+            <div className="h-9 p-0.5 bg-[#fcf9f2] rounded-xl border border-[#eadbbf] grid grid-cols-3 w-[126px] shrink-0">
               <button
                 type="button"
                 onClick={() => setLanguage("en")}
-                className={`h-7 px-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
+                className={`w-full h-7 rounded-lg text-xs font-bold transition-none cursor-pointer flex items-center justify-center ${
                   language === "en"
                     ? "bg-white text-[#8c6210] shadow-xs border border-amber-200/80"
-                    : "text-slate-500 hover:text-slate-900"
+                    : "border border-transparent text-slate-500 hover:text-slate-900"
                 }`}
                 title="English (PH)"
               >
@@ -83,10 +83,10 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               <button
                 type="button"
                 onClick={() => setLanguage("fil")}
-                className={`h-7 px-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
+                className={`w-full h-7 rounded-lg text-xs font-bold transition-none cursor-pointer flex items-center justify-center ${
                   language === "fil"
                     ? "bg-white text-[#8c6210] shadow-xs border border-amber-200/80"
-                    : "text-slate-500 hover:text-slate-900"
+                    : "border border-transparent text-slate-500 hover:text-slate-900"
                 }`}
                 title="Filipino / Tagalog"
               >
@@ -95,10 +95,10 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               <button
                 type="button"
                 onClick={() => setLanguage("ceb")}
-                className={`h-7 px-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
+                className={`w-full h-7 rounded-lg text-xs font-bold transition-none cursor-pointer flex items-center justify-center ${
                   language === "ceb"
                     ? "bg-white text-[#8c6210] shadow-xs border border-amber-200/80"
-                    : "text-slate-500 hover:text-slate-900"
+                    : "border border-transparent text-slate-500 hover:text-slate-900"
                 }`}
                 title="Cebuano / Bisaya"
               >
@@ -106,14 +106,14 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               </button>
             </div>
 
-            {/* Main Booking Button with Lustrous Gold Gradient */}
+            {/* Main Booking Button - Locked Width (w-[180px]) to Prevent Language Text Shift */}
             <button
               type="button"
               onClick={onOpenBooking}
-              className="h-10 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] hover:from-[#e8c679] hover:via-[#d4af37] hover:to-[#b3882a] text-slate-950 font-bold text-xs sm:text-sm px-4 sm:px-5 rounded-xl shadow-sm shadow-amber-600/20 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap shrink-0 border border-amber-200/50"
+              className="h-10 w-[180px] inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] hover:from-[#e8c679] hover:via-[#d4af37] hover:to-[#b3882a] text-slate-950 font-bold text-xs sm:text-sm rounded-xl shadow-sm shadow-amber-600/20 hover:scale-[1.01] active:scale-[0.99] transition-transform cursor-pointer whitespace-nowrap shrink-0 border border-amber-200/50"
             >
               <Calendar className="w-4 h-4 text-slate-900 shrink-0" />
-              <span>{t.nav.bookNow}</span>
+              <span className="truncate">{t.nav.bookNow}</span>
             </button>
           </div>
 
@@ -122,7 +122,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
             <button
               type="button"
               onClick={() => setLanguage(language === "en" ? "fil" : language === "fil" ? "ceb" : "en")}
-              className="sm:hidden min-h-[44px] min-w-[44px] px-2.5 bg-[#fbf7ee] text-[#8c6210] rounded-xl text-xs font-bold border border-[#eadbbf] flex items-center justify-center cursor-pointer active:scale-95"
+              className="sm:hidden min-h-[44px] w-16 px-2 bg-[#fbf7ee] text-[#8c6210] rounded-xl text-xs font-bold border border-[#eadbbf] flex items-center justify-center cursor-pointer active:scale-95 shrink-0"
               aria-label="Toggle language"
             >
               🇵🇭 {language.toUpperCase()}
@@ -134,7 +134,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               className="min-h-[44px] min-w-[44px] p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 flex items-center justify-center cursor-pointer active:scale-95"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6 text-slate-900" /> : <Menu className="w-6 h-6 text-slate-900" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-slate-900" /> : <Menu className="w-5 h-5 text-slate-900" />}
             </button>
           </div>
         </div>
@@ -149,24 +149,24 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
             <div className="flex items-center gap-1 bg-[#fcf9f2] p-1 rounded-xl border border-[#eadbbf]">
               <button
                 onClick={() => setLanguage("en")}
-                className={`px-3 py-1 text-xs rounded-lg ${
-                  language === "en" ? "bg-white font-bold text-[#8c6210] shadow-xs" : "text-slate-600"
+                className={`w-20 py-1.5 text-xs text-center rounded-lg transition-colors cursor-pointer ${
+                  language === "en" ? "bg-white font-bold text-[#8c6210] shadow-xs border border-amber-200/80" : "border border-transparent text-slate-600 font-medium"
                 }`}
               >
                 English
               </button>
               <button
                 onClick={() => setLanguage("fil")}
-                className={`px-3 py-1 text-xs rounded-lg ${
-                  language === "fil" ? "bg-white font-bold text-[#8c6210] shadow-xs" : "text-slate-600"
+                className={`w-20 py-1.5 text-xs text-center rounded-lg transition-colors cursor-pointer ${
+                  language === "fil" ? "bg-white font-bold text-[#8c6210] shadow-xs border border-amber-200/80" : "border border-transparent text-slate-600 font-medium"
                 }`}
               >
                 Filipino
               </button>
               <button
                 onClick={() => setLanguage("ceb")}
-                className={`px-3 py-1 text-xs rounded-lg ${
-                  language === "ceb" ? "bg-white font-bold text-[#8c6210] shadow-xs" : "text-slate-600"
+                className={`w-20 py-1.5 text-xs text-center rounded-lg transition-colors cursor-pointer ${
+                  language === "ceb" ? "bg-white font-bold text-[#8c6210] shadow-xs border border-amber-200/80" : "border border-transparent text-slate-600 font-medium"
                 }`}
               >
                 Bisaya

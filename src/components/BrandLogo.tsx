@@ -122,12 +122,12 @@ export default function BrandLogo({
 
       {showText && (
         <div className={`whitespace-nowrap flex flex-col justify-center ${textClassName}`}>
-          {/* Cursive Brand Title */}
-          <div className="font-script text-2xl sm:text-3xl leading-none text-[#b8860b] tracking-wide filter drop-shadow-xs">
+          {/* Editorial Brand Title */}
+          <div className="font-serif italic font-medium text-xl sm:text-2xl leading-none text-slate-900 tracking-tight">
             Serene Smile
           </div>
           {/* Subtitle / Department */}
-          <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#996515] leading-tight mt-0.5">
+          <div className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.22em] text-[#996515] leading-tight mt-1">
             Dental Clinic
           </div>
         </div>

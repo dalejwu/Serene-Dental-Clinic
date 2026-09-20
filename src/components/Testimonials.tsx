@@ -45,7 +45,7 @@ export default function Testimonials() {
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
             {t.testimonials.heading}{" "}
-            <span className="font-script text-4xl sm:text-5xl font-normal text-gold-gradient block sm:inline">
+            <span className="font-serif italic font-normal text-[#996515] block sm:inline">
               {t.testimonials.headingHighlight}
             </span>
           </h2>

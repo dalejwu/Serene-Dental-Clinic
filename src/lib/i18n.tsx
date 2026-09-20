@@ -177,10 +177,10 @@ export interface Translations {
 const translations: Record<Language, Translations> = {
   en: {
     nav: {
-      services: "Services & Pricing",
-      dentists: "Our Dentists",
+      services: "Services",
+      dentists: "Dentists",
       whyUs: "Why Choose Us",
-      info: "Location & Hours",
+      info: "Location",
       bookNow: "Book Appointment",
       openToday: "Open Mon-Sat",
       callEmergency: "Hotline: 0992 631 2712",
@@ -410,10 +410,10 @@ const translations: Record<Language, Translations> = {
   },
   fil: {
     nav: {
-      services: "Mga Serbisyo at Presyo",
-      dentists: "Aming mga Dentista",
+      services: "Mga Serbisyo",
+      dentists: "Mga Dentista",
       whyUs: "Bakit Kami",
-      info: "Lokasyon at Oras",
+      info: "Lokasyon",
       bookNow: "Mag-book ng Slot",
       openToday: "Bukas Lunes–Sabado",
       callEmergency: "Hotline: 0992 631 2712",
@@ -426,11 +426,11 @@ const translations: Record<Language, Translations> = {
     },
     hero: {
       badge: "Dr. Liam Hayes, DMD • Canelar, Zamboanga City",
-      titleStart: "Iyong Ligtas na Lugar para sa ",
-      titleHighlight: "Magandang Ngiti",
+      titleStart: "Ligtas na Lugar ng ",
+      titleHighlight: "Iyong Ngiti",
       description:
         "Magaan, maingat, at magiliw na dental care sa Canelar, Zamboanga City. Swiss EMS Airflow cleaning, braces, bunot ng wisdom tooth, at pampaputi na walang kaba.",
-      ctaBook: "Mag-book ng Appointment",
+      ctaBook: "Mag-book ng Slot",
       ctaServices: "Tingnan ang mga Serbisyo",
       ratingText: "5.0/5 Rating • Pinagkakatiwalaan sa Zamboanga",
       pricingGuarantee: "100% Malinaw na Presyo",
@@ -643,10 +643,10 @@ const translations: Record<Language, Translations> = {
   },
   ceb: {
     nav: {
-      services: "Mga Serbisyo ug Presyo",
-      dentists: "Amoang mga Dentista",
+      services: "Mga Serbisyo",
+      dentists: "Mga Dentista",
       whyUs: "Nganong Kami",
-      info: "Lokasyon ug Oras",
+      info: "Lokasyon",
       bookNow: "Mag-book og Slot",
       openToday: "Abli Lunes–Sabado",
       callEmergency: "Hotline: 0992 631 2712",
@@ -659,11 +659,11 @@ const translations: Record<Language, Translations> = {
     },
     hero: {
       badge: "Dr. Liam Hayes, DMD • Canelar, Zamboanga City",
-      titleStart: "Ang Luwas nga Dapit alang sa Imong ",
-      titleHighlight: "Nindot nga Pahiyom",
+      titleStart: "Luwas nga Dapit sa ",
+      titleHighlight: "Imong Pahiyom",
       description:
-        "Malumo, moderno, ug mahigalaong pag-atiman sa ngipon sa Canelar, Zamboanga City. Swiss EMS Airflow cleaning, braces, bunot sa wisdom tooth, ug pasta nga walay kaba ug sakit.",
-      ctaBook: "Mag-book og Appointment",
+        "Malumo, moderno, ug mahigalaong dental care sa Canelar, Zamboanga City. Swiss EMS Airflow cleaning, braces, bunot sa wisdom tooth, ug pasta nga walay kaba.",
+      ctaBook: "Mag-book og Slot",
       ctaServices: "Tan-awa ang mga Serbisyo",
       ratingText: "5.0/5 Rating • Kasaligan sa Zamboanga City",
       pricingGuarantee: "100% Klaro nga Presyo",
