@@ -129,10 +129,13 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
             </button>
 
             <button
+              id="mobile-nav-toggle"
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="min-h-[44px] min-w-[44px] p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 flex items-center justify-center cursor-pointer active:scale-95"
-              aria-label="Toggle navigation menu"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5 text-slate-900" /> : <Menu className="w-5 h-5 text-slate-900" />}
             </button>
@@ -140,85 +143,90 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         </div>
       </div>
 
-      {/* Mobile dropdown */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-amber-900/10 px-4 pt-2 pb-6 space-y-4 animate-in slide-in-from-top-2">
-          {/* Mobile Language Switcher Row */}
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-            <span className="text-xs font-semibold text-slate-500">Wika / Language:</span>
-            <div className="flex items-center gap-1 bg-[#fcf9f2] p-1 rounded-xl border border-[#eadbbf]">
-              <button
-                onClick={() => setLanguage("en")}
-                className={`w-20 py-1.5 text-xs text-center rounded-lg transition-colors cursor-pointer ${
-                  language === "en" ? "bg-white font-bold text-[#8c6210] shadow-xs border border-amber-200/80" : "border border-transparent text-slate-600 font-medium"
-                }`}
-              >
-                English
-              </button>
-              <button
-                onClick={() => setLanguage("fil")}
-                className={`w-20 py-1.5 text-xs text-center rounded-lg transition-colors cursor-pointer ${
-                  language === "fil" ? "bg-white font-bold text-[#8c6210] shadow-xs border border-amber-200/80" : "border border-transparent text-slate-600 font-medium"
-                }`}
-              >
-                Filipino
-              </button>
-              <button
-                onClick={() => setLanguage("ceb")}
-                className={`w-20 py-1.5 text-xs text-center rounded-lg transition-colors cursor-pointer ${
-                  language === "ceb" ? "bg-white font-bold text-[#8c6210] shadow-xs border border-amber-200/80" : "border border-transparent text-slate-600 font-medium"
-                }`}
-              >
-                Bisaya
-              </button>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-2.5 text-base font-semibold text-slate-700">
-            <a
-              href="#services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 hover:bg-[#fbf7ee] hover:text-[#b8860b] rounded-xl transition-colors"
-            >
-              {t.nav.services}
-            </a>
-            <a
-              href="#specialists"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 hover:bg-[#fbf7ee] hover:text-[#b8860b] rounded-xl transition-colors"
-            >
-              {t.nav.dentists}
-            </a>
-            <a
-              href="#why-us"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 hover:bg-[#fbf7ee] hover:text-[#b8860b] rounded-xl transition-colors"
-            >
-              {t.nav.whyUs}
-            </a>
-            <a
-              href="#info"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 hover:bg-[#fbf7ee] hover:text-[#b8860b] rounded-xl transition-colors"
-            >
-              {t.nav.info}
-            </a>
-          </div>
-
-          <div className="pt-3 border-t border-slate-100 flex flex-col gap-3">
+      {/* Mobile Navigation Drawer - Permanent semantic nav element with CSS disclosure */}
+      <nav
+        id="mobile-navigation"
+        aria-label="Mobile Navigation"
+        aria-hidden={!mobileMenuOpen}
+        className={`lg:hidden bg-white border-b border-amber-900/10 px-4 pt-2 pb-6 space-y-4 ${
+          mobileMenuOpen ? "block animate-in slide-in-from-top-2" : "hidden"
+        }`}
+      >
+        {/* Mobile Language Switcher Row */}
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <span className="text-xs font-semibold text-slate-500">Wika / Language:</span>
+          <div className="flex items-center gap-1 bg-[#fcf9f2] p-1 rounded-xl border border-[#eadbbf]">
             <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking();
-              }}
-              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] text-slate-950 font-bold py-3.5 rounded-2xl shadow-sm border border-amber-200/50"
+              onClick={() => setLanguage("en")}
+              className={`w-20 py-1.5 text-xs text-center rounded-lg transition-colors cursor-pointer ${
+                language === "en" ? "bg-white font-bold text-[#8c6210] shadow-xs border border-amber-200/80" : "border border-transparent text-slate-600 font-medium"
+              }`}
             >
-              <Calendar className="w-4 h-4 text-slate-900" />
-              <span>{t.nav.bookNow}</span>
+              English
+            </button>
+            <button
+              onClick={() => setLanguage("fil")}
+              className={`w-20 py-1.5 text-xs text-center rounded-lg transition-colors cursor-pointer ${
+                language === "fil" ? "bg-white font-bold text-[#8c6210] shadow-xs border border-amber-200/80" : "border border-transparent text-slate-600 font-medium"
+              }`}
+            >
+              Filipino
+            </button>
+            <button
+              onClick={() => setLanguage("ceb")}
+              className={`w-20 py-1.5 text-xs text-center rounded-lg transition-colors cursor-pointer ${
+                language === "ceb" ? "bg-white font-bold text-[#8c6210] shadow-xs border border-amber-200/80" : "border border-transparent text-slate-600 font-medium"
+              }`}
+            >
+              Bisaya
             </button>
           </div>
         </div>
-      )}
+
+        <div className="flex flex-col gap-2.5 text-base font-semibold text-slate-700">
+          <a
+            href="#services"
+            onClick={() => setMobileMenuOpen(false)}
+            className="px-3 py-2 hover:bg-[#fbf7ee] hover:text-[#b8860b] rounded-xl transition-colors"
+          >
+            {t.nav.services}
+          </a>
+          <a
+            href="#specialists"
+            onClick={() => setMobileMenuOpen(false)}
+            className="px-3 py-2 hover:bg-[#fbf7ee] hover:text-[#b8860b] rounded-xl transition-colors"
+          >
+            {t.nav.dentists}
+          </a>
+          <a
+            href="#why-us"
+            onClick={() => setMobileMenuOpen(false)}
+            className="px-3 py-2 hover:bg-[#fbf7ee] hover:text-[#b8860b] rounded-xl transition-colors"
+          >
+            {t.nav.whyUs}
+          </a>
+          <a
+            href="#info"
+            onClick={() => setMobileMenuOpen(false)}
+            className="px-3 py-2 hover:bg-[#fbf7ee] hover:text-[#b8860b] rounded-xl transition-colors"
+          >
+            {t.nav.info}
+          </a>
+        </div>
+
+        <div className="pt-3 border-t border-slate-100 flex flex-col gap-3">
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenBooking();
+            }}
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#dfba6b] via-[#c5a059] to-[#a07823] text-slate-950 font-bold py-3.5 rounded-2xl shadow-sm border border-amber-200/50"
+          >
+            <Calendar className="w-4 h-4 text-slate-900" />
+            <span>{t.nav.bookNow}</span>
+          </button>
+        </div>
+      </nav>
     </header>
   );
 }
