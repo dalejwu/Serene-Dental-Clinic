@@ -25,8 +25,10 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [apiError, setApiError] = useState(false);
 
   const handlePhoneChange = (val: string) => {
+    if (apiError) setApiError(false);
     const cleaned = val.replace(/\D/g, "").slice(0, 11);
     if (cleaned.length <= 4) {
       setPhone(cleaned);
@@ -40,6 +42,7 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
+    setApiError(false);
 
     if (!name.trim()) {
       setErrorMsg(t.expressBooking.errName);
@@ -69,26 +72,10 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
       if (res.ok) {
         setSubmitted(true);
       } else {
-        // Fallback for static Netlify hosting
-        if (typeof window !== "undefined") {
-          try {
-            const saved = JSON.parse(localStorage.getItem("serene_appointments") || "[]");
-            saved.push({ name, phone, concern, preferredWhen, date: new Date().toISOString() });
-            localStorage.setItem("serene_appointments", JSON.stringify(saved));
-          } catch {}
-        }
-        setSubmitted(true);
+        setApiError(true);
       }
     } catch {
-      // Local fallback in case of network issue or static host
-      if (typeof window !== "undefined") {
-        try {
-          const saved = JSON.parse(localStorage.getItem("serene_appointments") || "[]");
-          saved.push({ name, phone, concern, preferredWhen, date: new Date().toISOString() });
-          localStorage.setItem("serene_appointments", JSON.stringify(saved));
-        } catch {}
-      }
-      setSubmitted(true);
+      setApiError(true);
     } finally {
       setSubmitting(false);
     }
@@ -206,6 +193,35 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
                 </div>
               )}
 
+              {apiError && (
+                <div
+                  role="alert"
+                  className="p-4 sm:p-5 rounded-2xl bg-red-600 text-white shadow-xl border-2 border-red-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 animate-in fade-in slide-in-from-top-2 duration-200"
+                >
+                  <div className="flex items-start sm:items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 text-white flex items-center justify-center shrink-0">
+                      <AlertCircle className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-extrabold text-sm sm:text-base text-white">
+                        Online booking submission could not be sent
+                      </h4>
+                      <p className="text-xs sm:text-sm text-red-100 mt-0.5">
+                        Please call our clinic reception directly to book your appointment immediately:
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href="tel:+639926312712"
+                    aria-label="Call clinic directly at 0992 631 2712"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-slate-100 text-red-700 font-extrabold text-sm rounded-xl shadow-md transition-all shrink-0 active:scale-95 cursor-pointer"
+                  >
+                    <Phone className="w-4 h-4 text-red-600 shrink-0" />
+                    <span>Call 0992 631 2712</span>
+                  </a>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Name */}
                 <div className="space-y-1.5">
@@ -219,7 +235,10 @@ export default function ExpressBooking({ onOpenBooking }: ExpressBookingProps = 
                       name="patientName"
                       required
                       value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={(e) => {
+                        if (apiError) setApiError(false);
+                        setName(e.target.value);
+                      }}
                       placeholder={t.expressBooking.namePlaceholder}
                       className="w-full min-h-[44px] pl-10 pr-4 py-3 bg-[#fdfcf9] border border-slate-200 rounded-xl text-base sm:text-sm font-medium focus:bg-white focus:border-[#c5a059] focus:ring-2 focus:ring-[#c5a059]/20 outline-none transition-all"
                     />

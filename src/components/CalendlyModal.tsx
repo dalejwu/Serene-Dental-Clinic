@@ -13,6 +13,7 @@ import {
 import { ToothMark } from "./BrandLogo";
 import { ServiceItem } from "./ServiceCatalog";
 import { DentistItem } from "./DentistDirectory";
+import { buildSmsUri } from "@/lib/sms";
 
 interface CalendlyModalProps {
   isOpen: boolean;
@@ -27,7 +28,7 @@ export default function CalendlyModal({
   preselectedService,
   preselectedDentist,
 }: CalendlyModalProps) {
-  // Build tailored message for Messenger and SMS
+  // Build tailored message for SMS
   const prefillMessage = React.useMemo(() => {
     if (preselectedService && preselectedDentist) {
       return `Hello! I would like to book an appointment for ${preselectedService.name} with ${preselectedDentist.name} at Serene Dental Clinic (Canelar, Zamboanga City).`;
@@ -42,7 +43,11 @@ export default function CalendlyModal({
   }, [preselectedService, preselectedDentist]);
 
   const messengerUrl = "https://m.me/isa.adil.92";
-  const smsUrl = `sms:+639926312712?body=${encodeURIComponent(prefillMessage)}`;
+  const [smsUrl, setSmsUrl] = React.useState(`sms:+639926312712?body=${encodeURIComponent(prefillMessage)}`);
+
+  useEffect(() => {
+    setSmsUrl(buildSmsUri("+639926312712", prefillMessage));
+  }, [prefillMessage]);
 
   // Handle Escape key and body scroll lock
   useEffect(() => {
@@ -151,7 +156,7 @@ export default function CalendlyModal({
                 </div>
                 <div>
                   <h3 className="font-bold text-base sm:text-lg text-slate-900 group-hover:text-[#0084ff] transition-colors">
-                    Book via Messenger
+                    Chat with us on Messenger
                   </h3>
                   <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                     Chat directly with our reception team on Facebook Messenger.
@@ -160,7 +165,7 @@ export default function CalendlyModal({
               </div>
 
               <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0084ff]">
-                <span>Open Messenger</span>
+                <span>Chat with us on Messenger</span>
                 <Send className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </a>
